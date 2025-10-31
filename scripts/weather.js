@@ -21,7 +21,7 @@ const closeResultsBtn = document.querySelector('.close-results');
 // Weather API configuration
 const WEATHER_CONFIG = {
     apiKey: "c8fdcc2319595e62f2b13dad5b95ad7d",
-    city: "Gondia",
+    city: "Tisgaon",
     country: "IN",
     units: "metric",
     language: "mr"
