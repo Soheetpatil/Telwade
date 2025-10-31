@@ -18,7 +18,825 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
   </head>
+  <style>
+           :root {
+            --primary: #1a237e;
+            --primary-light: #534bae;
+            --primary-dark: #000051;
+            --secondary: #ff6f00;
+            --secondary-light: #ffa040;
+            --secondary-dark: #c43e00;
+            --accent: #00c853;
+            --accent-light: #5efc82;
+            --accent-dark: #009624;
+            --light: #e3f2fd;
+            --dark: #0d47a1;
+            --text: #212121;
+            --text-light: #757575;
+            --background: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
 
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--background);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--primary);
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+
+        .section-title.left:after {
+            left: 0;
+            transform: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border: none;
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-weight: 600;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+        }
+
+        .btn-outline-primary {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 50px;
+            padding: 10px 25px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .card {
+            border: none;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+         /* UPDATED HEADER STYLES */
+        .top-bar {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 6px 0;
+            font-size: 0.85rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo-header {
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+            padding: 15px 0;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid var(--secondary);
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            height: 65px;
+            width: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .village-info {
+            flex: 1;
+        }
+
+        .village-name {
+            color: var(--primary);
+            font-weight: 800;
+            margin-bottom: 0;
+            font-size: 1.8rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .village-subtitle {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: -5px;
+        }
+
+        .header-badges {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .header-badge {
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+            color: var(--white);
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            white-space: nowrap;
+        }
+
+        .header-badge.secondary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+        }
+
+        .nav-bar {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            padding: 0;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--white) !important;
+            font-weight: 500;
+            padding: 15px 20px !important;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .navbar-nav .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar-nav .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 20px;
+            right: 20px;
+            height: 3px;
+            background-color: white;
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .navbar-nav .nav-link:hover:after,
+        .navbar-nav .nav-link.active:after {
+            transform: scaleX(1);
+        }
+
+        .dropdown-menu {
+            border: none;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-hover);
+            padding: 10px 0;
+        }
+
+        .dropdown-item {
+            padding: 10px 20px;
+            transition: var(--transition);
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--light);
+            color: var(--primary);
+        }
+
+        .marquee {
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 8px 0;
+            font-weight: 500;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 85vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./Img/slide1.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 111, 0, 0.9);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-line {
+            width: 100px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 0 auto 30px;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .about-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .important-links-card {
+            height: 100%;
+        }
+
+        .important-links-card .card-body {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        /* Officers Section */
+        .officers-section {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+
+        .officer-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: var(--border-radius);
+            background: var(--white);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .officer-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .officer-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 5px solid var(--light);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .officer-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .officer-position {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .officer-contact {
+            color: var(--text-light);
+        }
+
+        /* Counters Section */
+        .counters-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+        }
+
+        .counter-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: var(--border-radius);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .counter-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .counter-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .counter-number {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .counter-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Facilities Section */
+        .facilities-section {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .facility-card {
+            display: flex;
+            margin-bottom: 50px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .facility-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .facility-image {
+            width: 40%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .facility-content {
+            width: 60%;
+            padding: 30px;
+            background: var(--white);
+        }
+
+        .facility-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .facility-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .facility-description {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 250px;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: var(--white);
+            padding: 20px;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* E-Alert Section */
+        .ealert-section {
+            padding: 60px 0;
+            background: linear-gradient(135deg,#465354,#36afccba);
+        }
+
+        .service-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: var(--border-radius);
+            background: var(--white);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .service-title {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        /* Plantation Section */
+        .plantation-section {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        /* Helpline Section */
+        .helpline-section {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+
+        .helpline-card, .forms-card {
+            height: 100%;
+        }
+
+        .helpline-item, .form-item {
+            padding: 15px;
+            border-radius: var(--border-radius);
+            background: var(--white);
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .helpline-item:hover, .form-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .helpline-icon, .file-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--white);
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #ff9933, #ffffff, #138808);
+        }
+
+        .footer-title {
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        .quick-links a {
+            display: block;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 12px;
+            transition: var(--transition);
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .quick-links a:before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .quick-links a:hover {
+            color: var(--white);
+            transform: translateX(5px);
+        }
+
+        .quick-links a:hover:before {
+            color: var(--accent);
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-info i {
+            margin-top: 5px;
+            margin-right: 15px;
+            min-width: 20px;
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .social-links a.facebook:hover {
+            color: #3b5998;
+        }
+
+        .social-links a.twitter:hover {
+            color: #1da1f2;
+        }
+
+        .social-links a.instagram:hover {
+            color: #e4405f;
+        }
+
+        .social-links a.youtube:hover {
+            color: #cd201f;
+        }
+
+        .social-links a.whatsapp:hover {
+            color: #25d366;
+        }
+
+        .copyright {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px 0;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .visitor-count {
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+            padding: 8px 15px;
+            border-radius: 50px;
+            display: inline-block;
+            margin: 10px 0;
+            font-weight: 600;
+        }
+
+        .developer-link {
+            color: var(--accent) !important;
+            font-weight: 600;
+        }
+
+        .developer-link:hover {
+            color: var(--white) !important;
+        }
+
+        /* Accessibility Button */
+        .accessibility-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            padding: 14px 22px;
+            box-shadow: var(--shadow-hover);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .accessibility-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .facility-card {
+                flex-direction: column;
+            }
+            
+            .facility-image, .facility-content {
+                width: 100%;
+            }
+            
+            .facility-image {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .counter-number {
+                font-size: 2.5rem;
+            }
+            
+            .accessibility-btn {
+                bottom: 15px;
+                right: 15px;
+                padding: 12px 18px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .officer-img {
+                width: 120px;
+                height: 120px;
+            }
+        }
+  </style>
   <body>
     <!-- Your existing HTML content -->
     <!-- Top Bar -->
@@ -40,217 +858,118 @@
         </div>
       </div>
     </div>
-
-    <!-- Logo Header -->
+   
+      <!-- Logo Header -->
     <div class="logo-header">
-      <div class="container">
-        <div class="d-flex align-items-center">
-          <img
-            src="./Img/main_logo.jpeg"
-            alt="ग्रामपंचायत लोगो"
-            class="logo me-3"
-          />
-          <h2 class="mb-0 marathi-font text-warning">
-            तेलवडे / Telwade
-          </h2>
+        <div class="container">
+            <div class="header-container">
+                <div class="logo-section">
+                    <img src="./Img/main_logo.jpeg" alt="ग्रामपंचायत लोगो" class="logo">
+                    <div class="village-info">
+                        <h2 class="village-name">तेलवडे / Telwade</h2>
+                        <div class="village-subtitle">ग्रामपंचायत | Gram Panchayat</div>
+                    </div>
+                </div>
+                <div class="header-badges">
+                    <div class="header-badge">
+                        <i class="fas fa-award me-1"></i>
+                        आदर्श ग्रामपंचायत
+                    </div>
+                    <div class="header-badge secondary">
+                        <i class="fas fa-star me-1"></i>
+                        डिजिटल ग्राम
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
 
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark nav-bar">
-      <div class="container">
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav nav-main-container">
-            <li class="nav-item">
-              <a class="nav-link active" href="./">
-                <i class="fas fa-home"></i> मुखपृष्ठ
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="./members.html">
-                <i class="fas fa-users"></i> पदाधिकारी
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="./villageinfo.html">
-                <i class="fas fa-info-circle"></i> गावाची माहिती
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./impnumbers.html">
-                <i class="fas fa-phone-alt"></i> महत्वाचे नंबर
-              </a>
-            </li>
-            <!-- शासकीय योजना Dropdown -->
-            <li class="nav-item dropdown d-flex align-items-center">
-              <a
-                class="nav-link text-white fw-semibold hover-link text-white"
-                href="./fifteen.html"
-              >
-                <i class="fa-solid fa-landmark text-white"></i>
-                शासकीय योजना
-              </a>
-              <a
-                class="nav-link dropdown-toggle text-primary fw-semibold"
-                href="./fifteen.html"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              ></a>
-              <ul class="dropdown-menu dropdown-menu-custom">
-                <li>
-                  <a
-                    class="dropdown-item dropdown-item-custom"
-                    href="./fifteen.html"
-                    >१५ वित्त आयोग</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item dropdown-item-custom"
-                    href="./jaljeevan.html"
-                    >जल जीवन मिशन</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item dropdown-item-custom"
-                    href="./pmyojna.html"
-                    >प्रधान मंत्री आवास योजना</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item dropdown-item-custom"
-                    href="./mgandhi.html"
-                    >महात्मा गांधी राष्ट्रीय ग्रामीण रोजगार हमी योजना</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item dropdown-item-custom"
-                    href="./tandavasti.html"
-                    >तांडा/वस्ती योजना</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item dropdown-item-custom"
-                    href="./scneo.html"
-                    >अनुसूचीत जाती व नवबौध्द विकास</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item dropdown-item-custom"
-                    href="./ramaiyojna.html"
-                    >रमाई आवास योजना</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item dropdown-item-custom"
-                    href="./shabriyojna.html"
-                    >शबरी आदिवासी घरकुल योजना</a
-                  >
-                </li>
-              </ul>
-            </li>
-            <!-- लाभार्थी रजिस्टर Dropdown -->
-            <li class="nav-item dropdown d-flex align-items-center">
-              <a
-                class="nav-link text-white fw-semibold text-white px-2 hover-link"
-                href="./pmlabh.html"
-              >
-                <i class="fa-solid fa-users-line text-white"></i>
-                लाभार्थी रजिस्टर
-              </a>
-              <a
-                class="nav-link dropdown-toggle text-primary fw-semibold px-1"
-                href="./pmlabh.html"
-                id="navbarDropdown2"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              ></a>
-              <ul class="dropdown-menu dropdown-menu-custom">
-                <li>
-                  <a
-                    class="dropdown-item dropdown-item-custom"
-                    href="./pmlabh.html"
-                    >प्रधानमंत्री आवास योजना</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item dropdown-item-custom"
-                    href="./shabrilabh.html"
-                    >शबरी आवास योजना</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item dropdown-item-custom"
-                    href="./ramailabh.html"
-                    >रमाई आवास योजना</a
-                  >
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="./services.html">
-                <i class="fas fa-user-check"></i> नागरिकांसाठी सेवा
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="./taxcollect.html">
-                <i class="fas fa-money-bill-wave"></i> कर संकलन
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./complaint.html">
-                <i class="fas fa-comments"></i> तक्रार द्या
-              </a>
-            </li>
-          </ul>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./">
+                            <i class="fas fa-home me-1"></i> मुखपृष्ठ
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./members.html">
+                            <i class="fas fa-users me-1"></i> पदाधिकारी
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./villageinfo.html">
+                            <i class="fas fa-info-circle me-1"></i> गावाची माहिती
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./impnumbers.html">
+                            <i class="fas fa-phone-alt me-1"></i> महत्वाचे नंबर
+                        </a>
+                    </li>
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="schemesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fas fa-landmark me-1"></i> शासकीय योजना <i class="fas fa-chevron-down ms-1" style="font-size: 0.8rem;"></i>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="schemesDropdown">
+        <li><a class="dropdown-item" href="./fifteen.html">१५ वित्त आयोग</a></li>
+        <li><a class="dropdown-item" href="./jaljeevan.html">जल जीवन मिशन</a></li>
+        <li><a class="dropdown-item" href="./pmyojna.html">प्रधान मंत्री आवास योजना</a></li>
+        <li><a class="dropdown-item" href="./mgandhi.html">महात्मा गांधी राष्ट्रीय ग्रामीण रोजगार हमी योजना</a></li>
+        <li><a class="dropdown-item" href="./tandavasti.html">तांडा/वस्ती योजना</a></li>
+        <li><a class="dropdown-item" href="./scneo.html">अनुसूचीत जाती व नवबौध्द विकास</a></li>
+        <li><a class="dropdown-item" href="./ramaiyojna.html">रमाई आवास योजना</a></li>
+        <li><a class="dropdown-item" href="./shabriyojna.html">शबरी आदिवासी घरकुल योजना</a></li>
+    </ul>
+</li>
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="beneficiaryDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fas fa-users-line me-1"></i> लाभार्थी रजिस्टर <i class="fas fa-chevron-down ms-1" style="font-size: 0.8rem;"></i>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="beneficiaryDropdown">
+        <li><a class="dropdown-item" href="./pmlabh.html">प्रधानमंत्री आवास योजना</a></li>
+        <li><a class="dropdown-item" href="./shabrilabh.html">शबरी आवास योजना</a></li>
+        <li><a class="dropdown-item" href="./ramailabh.html">रमाई आवास योजना</a></li>
+    </ul>
+</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./services.html">
+                            <i class="fas fa-user-check me-1"></i> नागरिकांसाठी सेवा
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./taxcollect.html">
+                            <i class="fas fa-money-bill-wave me-1"></i> कर संकलन
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./complaint.html">
+                            <i class="fas fa-comments me-1"></i> तक्रार द्या
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
     </nav>
 
     <!-- Marquee -->
     <div class="marquee">
-      <div class="container">
-        <marquee behavior="scroll" direction="left">
-          <i class="fas fa-bullhorn me-2"></i>
-          ग्रामपंचायत मध्ये स्वच्छता अभियान चालू आहे. सर्व नागरिकांनी सहभागी
-          व्हावे.
-        </marquee>
-      </div>
+        <div class="container">
+            <marquee behavior="scroll" direction="left">
+                <i class="fas fa-bullhorn me-2"></i>
+                ग्रामपंचायत मध्ये स्वच्छता अभियान चालू आहे. सर्व नागरिकांनी सहभागी व्हावे.
+            </marquee>
+        </div>
     </div>
 
-    <!-- Notification -->
-    <div
-      class="alert alert-warning d-flex align-items-center justify-content-center mb-0 rounded-0"
-      data-aos="fade-down"
-    >
-      <i class="fas fa-exclamation-circle me-2 fs-4"></i>
-      <strong>महत्वाची सूचना :</strong> नवीन जन्म नोंदणी प्रक्रिया ऑनलाईन सुरू
-      झाली आहे.
-    </div>
+
+
 
     <!-- Main Content Area -->
     <div class="contacts-search-container" id="searchContainer">
@@ -300,7 +1019,7 @@
 
     <div class="container my-5">
       <h2 class="section-subtitle mb-3" data-aos="fade-right">
-        महत्वाचे संपर्क — तेलवडे
+        महत्वाचे संपर्क — रायगड
       </h2>
 
       <!-- Toll Free Helplines -->
@@ -485,499 +1204,128 @@
         const colleges = [
           {
             sr: 1,
-            name: "शासकीय पॉलिटेक्निक कॉलेज गोंदिया",
-            contact: "07182-235140",
-            address: "फुलचूर पेठ, गोरेगाव रोड, गोंदिया. 441601",
+            name: "वसंतराव नाईक आर्ट्स अँड कॉमर्स कॉलेज",
+            contact: "०२१४९-२३२०४०",
+            address: "आत-पोस्ट व तालुका – म्हसळा, जिल्हा रायगड, पिन – ४०२१०५",
           },
           {
             sr: 2,
-            name: "शासकीय वैद्यकीय महाविद्यालय गोंदिया",
-            contact: "07182-238098",
-            address: "इंदिरा गांधी स्टेडियमजवळ, नेहरू चौक, गोंदिया",
+            name: "डी. एस. सी. कॉलेज, मुरुड-जंजीरा",
+            contact: "०२१४४-२७४३१०",
+            address: "मुरुड-जंजीरा, तालुका मुरुड, जिल्हा रायगड, महाराष्ट्र - ४०२४०१",
+          },
+          {
+            sr: 3,
+            name: "एस. एम. कॉलेज, अलिबाग",
+            contact: "०२१४१-२२२१२३",
+            address: "अलिबाग, जिल्हा रायगड, महाराष्ट्र - ४०२२०१",
           },
         ];
 
         const municipalities = [
           {
-            sr: 3,
-            name: "नगर परिषद, गोंदिया",
-            contact: "07182-237060",
-            address: "गांधी चौक, गोंदिया - 441601",
+            sr: 1,
+            name: "मुरुड नगरपरिषद",
+            contact: "०२१४४-२७४०३२",
+            address: "मुरुड-जंजीरा, तालुका मुरुड, जिल्हा रायगड, महाराष्ट्र - ४०२४०१",
           },
           {
-            sr: 4,
-            name: "नगर परिषद, तिरोदा",
-            contact: "07198-254060",
-            address: "शहीद मिश्रा वॉर्ड, न्यायालयाच्या समोर, तिरोदा - 441911",
+            sr: 2,
+            name: "अलिबाग नगरपरिषद",
+            contact: "०२१४१-२२२३८८",
+            address: "अलिबाग, जिल्हा रायगड, महाराष्ट्र - ४०२२०१",
           },
         ];
 
         const hospitals = [
           {
-            sr: 5,
-            name: "बीजीडब्ल्यू महिला जिल्हा रुग्णालय",
-            contact: "07182-237033",
-            address: "नेहरू चौक, गोंदिया - 441601",
+            sr: 1,
+            name: "उप जिल्हा रुग्णालय, मुरुड",
+            contact: "०२१४४-२७४४२०",
+            address: "मुरुड-जंजीरा, तालुका मुरुड, जिल्हा रायगड, महाराष्ट्र - ४०२४०१",
           },
           {
-            sr: 6,
-            name: "कुवर तिलक सिंग (KTS) जिल्हा रुग्णालय",
-            contact: "07182-234130",
-            address: "नेहरू चौक, गोंदिया - 441601",
-          },
-          { sr: 7, name: "अमगाव", contact: "07189-225157", address: "अमगाव" },
-          {
-            sr: 8,
-            name: "अर्जुनी मौरगाव",
-            contact: "07196-220166",
-            address: "अर्जुनी मौरगाव",
-          },
-          { sr: 9, name: "चिचगड", contact: "07199-224125", address: "चिचगड" },
-          { sr: 10, name: "चिचगड", contact: "07199-225222", address: "देवरी" },
-          {
-            sr: 11,
-            name: "गोरेगाव",
-            contact: "07187-232334",
-            address: "गोरेगाव",
-          },
-          {
-            sr: 12,
-            name: "नावेगाव/बांध",
-            contact: "07196-228007",
-            address: "नावेगाव/बांध",
-          },
-          {
-            sr: 13,
-            name: "राजेगाव",
-            contact: "07182-270449",
-            address: "राजेगाव",
-          },
-          {
-            sr: 14,
-            name: "सडक अर्जुनी",
-            contact: "07199-233239",
-            address: "सडक अर्जुनी",
-          },
-          {
-            sr: 15,
-            name: "सालेकसा",
-            contact: "07180-244181",
-            address: "सालेकसा",
-          },
-          { sr: 16, name: "सौंडाड", contact: "0799-232199", address: "सौंडाड" },
-          {
-            sr: 17,
-            name: "उप-विभागीय रुग्णालय, तिरोदा",
-            contact: "07198-254118",
-            address: "तिरोदा",
+            sr: 2,
+            name: "जिल्हा रुग्णालय, अलिबाग",
+            contact: "०२१४१-२२२०८१",
+            address: "अलिबाग, जिल्हा रायगड, महाराष्ट्र - ४०२२०१",
           },
         ];
 
         const electricity = [
           {
-            sr: 18,
-            name: "सर्कल ऑफिस गोंदिया",
-            contact: "07182-253240",
-            address: "ओल्ड पॉवर हाऊस, राम नगर, गोंदिया",
+            sr: 1,
+            name: "महावितरण कार्यालय, मुरुड",
+            contact: "०२१४४-२७४१२५",
+            address: "महावितरण उपकेंद्र, मुरुड-जंजीरा, रायगड",
           },
           {
-            sr: 19,
-            name: "विभाग, देवरी",
-            contact: "07199-225352",
-            address: "BDCC बँकजवळ, राष्ट्रीय महामार्ग, देवरी",
-          },
-          {
-            sr: 20,
-            name: "विभाग, गोंदिया",
-            contact: "07182-253336",
-            address: "ओल्ड पॉवर हाऊस, राम नगर, गोंदिया",
-          },
-          {
-            sr: 21,
-            name: "उप-विभाग, अमगाव",
-            contact: "07189-225273",
-            address: "अग्रवाल कॉम्प्लेक्स, सीमा टॉकीजजवळ, मुख्य रोड, अमगाव",
-          },
-          {
-            sr: 22,
-            name: "उप-विभाग, देवरी",
-            contact: "07199-225252",
-            address: "जैन मंदिरजवळ, राष्ट्रीय महामार्ग, देवरी",
-          },
-          {
-            sr: 23,
-            name: "उप-विभाग, गोंदिया ग्रामीण",
-            contact: "07182-251289",
-            address: "सूर्यातोला पॉवर हाऊस, गोंदिया",
-          },
-          {
-            sr: 24,
-            name: "उप-विभाग, गोंदिया शहरी",
-            contact: "07182-233473",
-            address: "सूर्यातोला पॉवर हाऊस, गोंदिया",
-          },
-          {
-            sr: 25,
-            name: "उप-विभाग, गोरेगाव",
-            contact: "07187-232341",
-            address: "टेडा रोड, गोरेगाव",
-          },
-          {
-            sr: 26,
-            name: "उप-विभाग, सडक अर्जुनी",
-            contact: "07199-233028",
-            address: "GDCC बँकजवळ, कोहामारा, सडक अर्जुनी",
-          },
-          {
-            sr: 27,
-            name: "उप-विभाग, सालेकसा",
-            contact: "07180-225490",
-            address: "सालेकसा बस स्टॉपजवळ, पंचायत समिती इमारतीसमोर, सालेकसा",
-          },
-          {
-            sr: 28,
-            name: "उप-विभाग, तिरोदा",
-            contact: "07198-254068",
-            address: "ओल्ड पॉवर हाऊस, तहसील ऑफिसजवळ, तिरोदा",
-          },
-          {
-            sr: 29,
-            name: "झोनल ऑफिस गोंदिया",
-            contact: "07182-253101",
-            address: "ओल्ड पॉवर हाऊस, राम नगर, गोंदिया",
-          },
-          {
-            sr: 30,
-            name: "उप-विभाग, अर्जुनी मौरगाव",
-            contact: "07196-220339",
-            address: "शशिकांत चौरसिया, SBI बँकजवळ, सांगाडी रोड, अर्जुनी मौरगाव",
+            sr: 2,
+            name: "महावितरण कार्यालय, अलिबाग",
+            contact: "०२१४१-२२२४५६",
+            address: "महावितरण मुख्य कार्यालय, अलिबाग, रायगड",
           },
         ];
 
         const postal = [
           {
-            sr: 31,
-            name: "अमगाव",
-            contact: "07189-225221",
-            address: "अमगाव-441902",
+            sr: 1,
+            name: "मुरुड पोस्ट ऑफिस",
+            contact: "०२१४४-२७४३१०",
+            address: "मुरुड-जंजीरा, रायगड - ४०२४०१",
           },
           {
-            sr: 32,
-            name: "अर्जुनी मौरगाव",
-            contact: "07196-220121",
-            address: "अर्जुनी मौरगाव-441701",
-          },
-          {
-            sr: 33,
-            name: "देवरी (गोंदिया)",
-            contact: "07199-225121",
-            address: "देवरी-441901",
-          },
-          {
-            sr: 34,
-            name: "गोंदिया बाजार",
-            contact: "07182-222102",
-            address: "गोंदिया बाजार-441601",
-          },
-          {
-            sr: 35,
-            name: "गोंदिया शहर",
-            contact: "07182-252215",
-            address: "गोंदिया शहर-441614",
-          },
-          {
-            sr: 36,
-            name: "गोंदिया मुख्यालय",
-            contact: "07182-223080",
-            address: "गोंदिया-441601",
-          },
-          {
-            sr: 37,
-            name: "नावेगाव बांध",
-            contact: "07196-228021",
-            address: "नावेगाव बांध-441702",
-          },
-          {
-            sr: 38,
-            name: "सडक अर्जुनी",
-            contact: "07199-233221",
-            address: "सडक अर्जुनी-441807",
-          },
-          {
-            sr: 39,
-            name: "सालेकसा",
-            contact: "07189-244122",
-            address: "सालेकसा-441916",
-          },
-          {
-            sr: 40,
-            name: "सौंडाड",
-            contact: "07199-232121",
-            address: "सौंडाड-441806",
-          },
-          {
-            sr: 41,
-            name: "तिरोरा",
-            contact: "07198-254023",
-            address: "तिरोरा-441911",
+            sr: 2,
+            name: "अलिबाग पोस्ट ऑफिस",
+            contact: "०२१४१-२२२१८९",
+            address: "अलिबाग, रायगड - ४०२२०१",
           },
         ];
 
         const banks = [
           {
-            sr: 42,
-            name: "बँक ऑफ बडोदा",
-            contact: "07182-252720",
-            address: "रेलटॉली, गोंदिया",
-          },
-          {
-            sr: 43,
-            name: "बँक ऑफ इंडिया",
-            contact: "07182-251305",
-            address: "कौशल्या निकेतन, वल्लभभाई वॉर्ड, रेल टॉली, गोंदिया",
-          },
-          {
-            sr: 44,
-            name: "कॅनरा बँक",
-            contact: "07182-233772",
-            address: "पांडे राइस मिल हाऊस, जुना बस स्टँड रोड, गोंदिया",
-          },
-          {
-            sr: 45,
-            name: "डीना बँक",
-            contact: "07182-222006",
-            address: "अंसारी वॉर्ड, खोजा मशिद SS गर्ल्स कॉलेज रोड, गोंदिया",
-          },
-          {
-            sr: 46,
-            name: "इंडियन ओव्हरसीज बँक",
-            contact: "07182-231251",
-            address: "गुरुनानक वॉर्ड, गोंदिया",
-          },
-          {
-            sr: 47,
-            name: "पंजाब नॅशनल बँक",
-            contact: "07182-222066",
-            address: "प्रभात टॉकीजजवळ, गोंदिया",
-          },
-          {
-            sr: 48,
-            name: "पंजाब नॅशनल बँक (MIET)",
-            contact: "07182-252041",
-            address: "MIET कॉलेज, गोंदिया",
-          },
-          {
-            sr: 49,
+            sr: 1,
             name: "स्टेट बँक ऑफ इंडिया",
-            contact: "07182-231524",
-            address: "आग्रसेन भवन रोड, गोंदिया",
+            contact: "०२१४४-२७४२२५",
+            address: "मुरुड-जंजीरा शाखा, रायगड",
           },
           {
-            sr: 50,
-            name: "स्टेट बँक ऑफ इंडिया (रेलटॉली)",
-            contact: "07182-223093",
-            address: "रेलटॉली, गोंदिया",
-          },
-          {
-            sr: 51,
-            name: "यूको बँक",
-            contact: "07182-2252871",
-            address: "गांधी मार्केट, रेल टॉली रोड, गोंदिया",
-          },
-          {
-            sr: 52,
-            name: "युनियन बँक ऑफ इंडिया",
-            contact: "07182-251857",
-            address:
-              "सौ. सुभदेवी बोपचे भवन, तिलक वॉर्ड, पूनाटोली, बालाघाट रोड, गोंदिया",
+            sr: 2,
+            name: "बँक ऑफ इंडिया",
+            contact: "०२१४४-२७४५५५",
+            address: "मुरुड शाखा, रायगड",
           },
         ];
 
         const medicalContacts = [
           {
             sr: 1,
-            taluka: "गोंदिया",
-            hospital: "KTS रुग्णालय, गोंदिया",
-            incharge: "डा. बी. डी. जैसवाल",
-            contact: "9423470974",
+            taluka: "मुरुड",
+            hospital: "उप जिल्हा रुग्णालय, मुरुड",
+            incharge: "डॉ. प्रभारी",
+            contact: "०२१४४-२७४४२०",
           },
           {
             sr: 2,
-            taluka: "गोंदिया",
-            hospital: "MS आयुर्वेदिक कॉलेज, गोंदिया",
-            incharge: "डा. अविनाश येर्ने",
-            contact: "9766950662",
-          },
-          {
-            sr: 3,
-            taluka: "तिरोरा",
-            hospital: "उप जिल्हा रुग्णालय, तिरोरा",
-            incharge: "डा. एच. मेश्राम",
-            contact: "9975736319",
-          },
-          {
-            sr: 4,
-            taluka: "गोंदिया",
-            hospital: "शासकीय वैद्यकीय महाविद्यालय, गोंदिया",
-            incharge: "डा. अशिष लोटे",
-            contact: "9730753151",
-          },
-          {
-            sr: 5,
-            taluka: "गोंदिया",
-            hospital: "सेंट्रल हॉस्पिटल, गोंदिया",
-            incharge: "डा. एल. एल. बजाज, धिरज बी. वासेकर",
-            contact: "9823252700",
-          },
-          {
-            sr: 6,
-            taluka: "गोंदिया",
-            hospital: "सहयोग रुग्णालय",
-            incharge: "-",
-            contact: "8888001426",
-          },
-          {
-            sr: 7,
-            taluka: "गोंदिया",
-            hospital: "बहेकर मल्टीस्पेशॅलिटी आणि रिसर्च सेंटर",
-            incharge: "डा. दीपक बहेकर, नेहा साटदेवे",
-            contact: "9370711255, 8007762849",
-          },
-          {
-            sr: 8,
-            taluka: "गोंदिया",
-            hospital: "श्री राधा कृष्ण हॉस्पिटल",
-            incharge: "डा. पी. गिरी, आनंद कटरे",
-            contact: "9403130084, 9689237010",
-          },
-          {
-            sr: 9,
-            taluka: "गोंदिया",
-            hospital: "KMJ रुग्णालय",
-            incharge: "डा. अमित जैसवाल",
-            contact: "9922876476",
-          },
-          {
-            sr: 10,
-            taluka: "गोंदिया",
-            hospital: "गायत्री हॉस्पिटल",
-            incharge: "डा. संजय येडे",
-            contact: "9822459270",
-          },
-          {
-            sr: 11,
-            taluka: "गोंदिया",
-            hospital: "आयुष क्रिटिकल केअर हॉस्पिटल",
-            incharge: "डा. जितेंद्र गुप्ता",
-            contact: "07182-252200",
-          },
-          {
-            sr: 12,
-            taluka: "तिरोरा",
-            hospital: "धुर्वे हॉस्पिटल",
-            incharge: "डा. अमोल धुर्वे",
-            contact: "9970878423",
-          },
-          {
-            sr: 13,
-            taluka: "तिरोरा",
-            hospital: "दुबे हॉस्पिटल",
-            incharge: "डा. निकेश दुबे",
-            contact: "9730761874",
-          },
-          {
-            sr: 14,
-            taluka: "तिरोरा",
-            hospital: "दया हॉस्पिटल",
-            incharge: "डा. संदीप मेश्राम",
-            contact: "9529478936",
-          },
-          {
-            sr: 15,
-            taluka: "गोंदिया",
-            hospital: "हीलिंग हँड हॉस्पिटल",
-            incharge: "डा. व्ही. मोहाबे",
-            contact: "8275298630",
-          },
-          {
-            sr: 16,
-            taluka: "गोंदिया",
-            hospital: "अनन्या हॉस्पिटल",
-            incharge: "डा. प्रशांत मेश्राम",
-            contact: "7517696862",
-          },
-          {
-            sr: 17,
-            taluka: "गोंदिया",
-            hospital: "गोंदिया सिटी हॉस्पिटल",
-            incharge: "डा. संजय अग्रवाल",
-            contact: "9923433828",
-          },
-          {
-            sr: 18,
-            taluka: "गोंदिया",
-            hospital: "राणी अवंती हॉस्पिटल",
-            incharge: "डा. श्वेता महुले",
-            contact: "9830706766, 9404212683",
-          },
-          {
-            sr: 19,
-            taluka: "अमगाव",
-            hospital: "सिद्धिविनायक हॉस्पिटल, अमगाव",
-            incharge: "डा. पियुष पांडे",
-            contact: "9356680335",
-          },
-          {
-            sr: 20,
-            taluka: "गोंदिया",
-            hospital: "एपिओन हॉस्पिटल, गोंदिया",
-            incharge: "डा. अभिषेक भालोटिया",
-            contact: "9960746354",
+            taluka: "अलिबाग",
+            hospital: "जिल्हा रुग्णालय, अलिबाग",
+            incharge: "डॉ. प्रभारी",
+            contact: "०२१४१-२२२०८१",
           },
         ];
 
         const oddopGrievanceContacts = [
           {
             srNo: 1,
-            name: "श्री. प्रजित नायर (I.A.S.)",
-            designation: "जिल्हा कलेक्टर व मजिस्ट्रेट",
-            contact: "07182-236149",
+            name: "जिल्हा अधिकारी",
+            designation: "जिल्हा कलेक्टर",
+            contact: "०२१४१-२२२००१",
           },
           {
             srNo: 2,
-            name: "श्री. सारंग पाटले",
-            designation: "जनरल मॅनेजर, DIC",
-            contact: "9970423843",
-          },
-          {
-            srNo: 3,
-            name: "श्री. हिंदुराव चव्हाण",
-            designation: "DSAO",
-            contact: "07182-230373",
-          },
-          {
-            srNo: 4,
-            name: "श्री. अजीत आदसुले",
-            designation: "प्रोजेक्ट डायरेक्टर (ATMA)",
-            contact: "9637252719",
-          },
-          {
-            srNo: 5,
-            name: "श्री. पंकज गजभिये",
-            designation: "DIO, गोंदिया",
-            contact: "07182-234404",
-          },
-          {
-            srNo: 6,
-            name: "श्री. रमन पाटील",
-            designation: "मॅनेजर, DIC",
-            contact: "9881867787",
-          },
-          {
-            srNo: 7,
-            name: "सुश्री. मीनाक्षी बागडे",
-            designation: "EY कन्सल्टंट",
-            contact: "7972692098",
+            name: "उप जिल्हा अधिकारी",
+            designation: "उप जिल्हा कलेक्टर",
+            contact: "०२१४४-२७४००१",
           },
         ];
 
