@@ -21,7 +21,7 @@ const closeResultsBtn = document.querySelector('.close-results');
 // Weather API configuration
 const WEATHER_CONFIG = {
     apiKey: "c8fdcc2319595e62f2b13dad5b95ad7d",
-    city: "Tisgaon",
+    city: "Telwade",
     country: "IN",
     units: "metric",
     language: "mr"
@@ -33,7 +33,7 @@ const homepageContent = [
         id: 1,
         title: "गावा विषयी",
         category: "माहिती",
-        description: "ग्रामपंचायत वडेगाव(स्टेशन) हे गोंदिया जिल्ह्यातील अर्जुनी/मोरगाव तालुक्यात वसलेले एक शेती प्रधान आणि प्रगतशील गाव",
+        description: "ग्रामपंचायत वडेगाव हे गोंदिया जिल्ह्यातील अर्जुनी/मोरगाव तालुक्यात वसलेले एक शेती प्रधान आणि प्रगतशील गाव",
         keywords: ["गाव", "वडेगाव", "गोंदिया", "ग्रामपंचायत", "माहिती", "परिचय"],
         link: "#about-section",
         type: "internal"

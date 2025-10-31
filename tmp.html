@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>तेलवडे / Telwade</title>
+    
+    <!-- CSS Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #1a237e;
+            --primary-light: #534bae;
+            --primary-dark: #000051;
+            --secondary: #ff6f00;
+            --secondary-light: #ffa040;
+            --secondary-dark: #c43e00;
+            --accent: #00c853;
+            --accent-light: #5efc82;
+            --accent-dark: #009624;
+            --light: #e3f2fd;
+            --dark: #0d47a1;
+            --text: #212121;
+            --text-light: #757575;
+            --background: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--background);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        /* UPDATED HEADER STYLES */
+        .top-bar {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 6px 0;
+            font-size: 0.85rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo-header {
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+            padding: 15px 0;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid var(--secondary);
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            height: 65px;
+            width: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .village-info {
+            flex: 1;
+        }
+
+        .village-name {
+            color: var(--primary);
+            font-weight: 800;
+            margin-bottom: 0;
+            font-size: 1.8rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .village-subtitle {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: -5px;
+        }
+
+        .header-badges {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .header-badge {
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+            color: var(--white);
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            white-space: nowrap;
+        }
+
+        .header-badge.secondary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+        }
+
+        .nav-bar {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            padding: 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--white) !important;
+            font-weight: 600;
+            padding: 18px 20px !important;
+            transition: var(--transition);
+            position: relative;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar-nav .nav-link:last-child {
+            border-right: none;
+        }
+
+        .navbar-nav .nav-link:hover {
+            background: linear-gradient(135deg, rgba(255, 111, 0, 0.2), rgba(255, 111, 0, 0.1));
+            transform: translateY(-2px);
+        }
+
+        .navbar-nav .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: var(--secondary);
+            transition: var(--transition);
+            border-radius: 2px 2px 0 0;
+        }
+
+        .navbar-nav .nav-link:hover:after,
+        .navbar-nav .nav-link.active:after {
+            width: 80%;
+        }
+
+        .dropdown-menu {
+            border: none;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-hover);
+            padding: 8px 0;
+            background: var(--white);
+            border-top: 3px solid var(--secondary);
+        }
+
+        .dropdown-item {
+            padding: 12px 20px;
+            transition: var(--transition);
+            color: var(--text);
+            font-weight: 500;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .dropdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-item:hover {
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            color: var(--white);
+            transform: translateX(5px);
+        }
+
+        .marquee {
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+            color: var(--white);
+            padding: 10px 0;
+            font-weight: 600;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .marquee-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .marquee-badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+
+        /* Rest of the styles remain the same */
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--primary);
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border: none;
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-weight: 600;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+        }
+
+        .btn-outline-primary {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 50px;
+            padding: 10px 25px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .card {
+            border: none;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 85vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./Img/slide1.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 111, 0, 0.9);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-line {
+            width: 100px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 0 auto 30px;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .about-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .important-links-card {
+            height: 100%;
+        }
+
+        .important-links-card .card-body {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        /* Officers Section */
+        .officers-section {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+
+        .officer-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: var(--border-radius);
+            background: var(--white);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .officer-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .officer-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 5px solid var(--light);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .officer-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .officer-position {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .officer-contact {
+            color: var(--text-light);
+        }
+
+        /* Counters Section */
+        .counters-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+        }
+
+        .counter-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: var(--border-radius);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .counter-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .counter-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .counter-number {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .counter-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .navbar-nav .nav-link {
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .village-name {
+                font-size: 1.5rem;
+            }
+            
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .counter-number {
+                font-size: 2.5rem;
+            }
+            
+            .header-badges {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .header-badge {
+                font-size: 0.75rem;
+                padding: 6px 12px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .officer-img {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .village-name {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- UPDATED HEADER SECTION -->
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <i class="fas fa-landmark me-2"></i>
+                    महाराष्ट्र शासन | GOVERNMENT OF MAHARASHTRA
+                </div>
+                <div class="col-md-6 d-flex justify-content-end align-items-center gap-3 flex-wrap">
+                    <span>
+                        <i class="fas fa-envelope me-1"></i>
+                        gptelwade1947@gmail.com
+                    </span>
+                    <div id="google_translate_element"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logo Header -->
+    <div class="logo-header">
+        <div class="container">
+            <div class="header-container">
+                <div class="logo-section">
+                    <img src="./Img/main_logo.jpeg" alt="ग्रामपंचायत लोगो" class="logo">
+                    <div class="village-info">
+                        <h2 class="village-name">तेलवडे / Telwade</h2>
+                        <div class="village-subtitle">ग्रामपंचायत | Gram Panchayat</div>
+                    </div>
+                </div>
+                <div class="header-badges">
+                    <div class="header-badge">
+                        <i class="fas fa-award me-1"></i>
+                        आदर्श ग्रामपंचायत
+                    </div>
+                    <div class="header-badge secondary">
+                        <i class="fas fa-star me-1"></i>
+                        डिजिटल ग्राम
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark nav-bar">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./">
+                            <i class="fas fa-home me-1"></i> मुखपृष्ठ
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./members.html">
+                            <i class="fas fa-users me-1"></i> पदाधिकारी
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./villageinfo.html">
+                            <i class="fas fa-info-circle me-1"></i> गावाची माहिती
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./impnumbers.html">
+                            <i class="fas fa-phone-alt me-1"></i> महत्वाचे नंबर
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="schemesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-landmark me-1"></i> शासकीय योजना
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="schemesDropdown">
+                            <li><a class="dropdown-item" href="./fifteen.html">१५ वित्त आयोग</a></li>
+                            <li><a class="dropdown-item" href="./jaljeevan.html">जल जीवन मिशन</a></li>
+                            <li><a class="dropdown-item" href="./pmyojna.html">प्रधान मंत्री आवास योजना</a></li>
+                            <li><a class="dropdown-item" href="./mgandhi.html">महात्मा गांधी राष्ट्रीय ग्रामीण रोजगार हमी योजना</a></li>
+                            <li><a class="dropdown-item" href="./tandavasti.html">तांडा/वस्ती योजना</a></li>
+                            <li><a class="dropdown-item" href="./scneo.html">अनुसूचीत जाती व नवबौध्द विकास</a></li>
+                            <li><a class="dropdown-item" href="./ramaiyojna.html">रमाई आवास योजना</a></li>
+                            <li><a class="dropdown-item" href="./shabriyojna.html">शबरी आदिवासी घरकुल योजना</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="beneficiaryDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-users-line me-1"></i> लाभार्थी रजिस्टर
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="beneficiaryDropdown">
+                            <li><a class="dropdown-item" href="./pmlabh.html">प्रधानमंत्री आवास योजना</a></li>
+                            <li><a class="dropdown-item" href="./shabrilabh.html">शबरी आवास योजना</a></li>
+                            <li><a class="dropdown-item" href="./ramailabh.html">रमाई आवास योजना</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./services.html">
+                            <i class="fas fa-user-check me-1"></i> नागरिकांसाठी सेवा
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./taxcollect.html">
+                            <i class="fas fa-money-bill-wave me-1"></i> कर संकलन
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./complaint.html">
+                            <i class="fas fa-comments me-1"></i> तक्रार द्या
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Marquee -->
+    <div class="marquee">
+        <div class="container">
+            <div class="marquee-content">
+                <span class="marquee-badge">सूचना</span>
+                <marquee behavior="scroll" direction="left">
+                    <i class="fas fa-bullhorn me-2"></i>
+                    ग्रामपंचायत मध्ये स्वच्छता अभियान चालू आहे. सर्व नागरिकांनी सहभागी व्हावे.
+                </marquee>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rest of the content remains exactly the same -->
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up" data-aos-duration="1500">
+                <span class="hero-badge">स्वागत आहे</span>
+                <h1 class="hero-title">तेलवडे ग्रामपंचायत</h1>
+                <p class="hero-subtitle">सर्वांगीण विकासाच्या दिशेने सतत प्रयत्नशील</p>
+                <div class="hero-line"></div>
+                <a href="#about" class="btn btn-primary">
+                    अधिक जाणून घ्या <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">गावा विषयी</h2>
+            <div class="row">
+                <div class="col-lg-8" data-aos="fade-right">
+                    <div class="about-content">
+                        <p>
+                            तेलवडे ग्रामपंचायत ही अलिबाग जिल्हा परिषद, मुरुड पंचायत समिती अंतर्गत येणारी एक ग्रामिण स्वराज्य संस्था आहे. गावाची लोकसंख्या ८२७ असून महाराष्ट्राच्या रायगड जिल्ह्यातील मुरुड तालुक्यात वसलेले एक महत्त्वपूर्ण गाव आहे. तेलवडे ही स्वतंत्र ग्रामपंचायत आहे जिल्हा मुख्यालयापासून सुमारे 52 किलोमीटर अंतरावर असलेले हे एक डोंगर भागातील गाव आहे तेलवडे हे एक स्वतंत्र ग्रामपंचायत असलेले डोंगराळ भागातील सुंदर आणि निसर्गरम्य गाव आहे. गावाच्या सभोवताल हिरवाईने नटलेली टेकड्या, लहान ओढे आणि शेतीयोग्य जमीन आढळते. येथील मुख्य पिकांमध्ये भात, नाचणी, वारी, भाजीपाला इत्यादींचा समावेश होतो. ग्रामपंचायतीकडून गावातील पाणीपुरवठा, रस्ते, स्वच्छता आणि शिक्षणविषयक सुविधा यांसारख्या मूलभूत गरजांकडे विशेष लक्ष दिले जाते.
+                        </p>
+                        <p>
+                            गावात प्राथमिक शाळा, मंदिर, अंगणवाडी केंद्र तसेच विविध सामाजिक संघटना कार्यरत आहेत. ग्रामस्थांमध्ये ऐक्यभाव आणि परंपरागत संस्कृतीचे पालन दिसून येते. वार्षिक सण, उत्सव आणि पारंपरिक जत्रा गावाच्या सामाजिक जीवनाला अधिक रंगतदार बनवतात. तेलवडे हे गाव लहान असले तरी तेथील लोकांचे श्रम, परिश्रम आणि निसर्गाशी असलेले नाते हे त्याचे खरे वैभव आहे.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-left">
+                    <div class="card important-links-card">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0"><i class="fas fa-link me-2"></i>महत्वाचे दुवे</h5>
+                        </div>
+                        <div class="card-body">
+                            <a href="https://www.india.gov.in/" target="_blank" class="btn btn-outline-primary w-100 mb-2">भारत सरकार</a>
+                            <a href="https://www.maharashtra.gov.in/" target="_blank" class="btn btn-outline-primary w-100 mb-2">महाराष्ट्र शासन</a>
+                            <a href="https://rdd.maharashtra.gov.in/" target="_blank" class="btn btn-outline-primary w-100 mb-2">ग्रामीण विकास व पंचायतराज विभाग</a>
+                            <a href="https://Telwade.gov.in/" target="_blank" class="btn btn-outline-primary w-100 mb-2">जिल्हाधिकारी कार्यालय</a>
+                            <a href="https://www.Telwadepolice.gov.in/" target="_blank" class="btn btn-outline-primary w-100 mb-2">गोंदिया पोलीस</a>
+                            <a href="https://aaplesarkar.mahaonline.gov.in/" target="_blank" class="btn btn-outline-primary w-100 mb-2">आपले सरकार सेवा</a>
+                            <a href="https://mahadbt.maharashtra.gov.in/login/login" target="_blank" class="btn btn-outline-primary w-100">महा DBT</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            easing: 'ease-in-out',
+        });
+
+        // Counter Animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const counters = document.querySelectorAll('.counter-number');
+            const speed = 200;
+            
+            counters.forEach(counter => {
+                const target = +counter.innerText;
+                const increment = target / speed;
+                let current = 0;
+                
+                const updateCounter = () => {
+                    current += increment;
+                    if (current < target) {
+                        counter.innerText = Math.ceil(current);
+                        setTimeout(updateCounter, 1);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                
+                updateCounter();
+            });
+        });
+
+        // Visitor Counter
+        let visitorCount = 12896;
+        function updateVisitorCounter() {
+            visitorCount++;
+            document.getElementById('visitorCounter').textContent = visitorCount.toLocaleString('mr-IN');
+        }
+        updateVisitorCounter();
+    </script>
+</body>
+</html>
