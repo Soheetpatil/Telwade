@@ -836,10 +836,209 @@
                 height: 120px;
             }
         }
+        /* Mobile-First Responsive Improvements */
+@media (max-width: 768px) {
+    /* Header improvements */
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .logo-section {
+        flex-direction: column;
+    }
+    
+    .village-name {
+        font-size: 1.5rem;
+    }
+    
+    .header-badges {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    /* Navigation improvements */
+    .navbar-nav .nav-link {
+        padding: 12px 15px !important;
+        text-align: center;
+    }
+    
+    .dropdown-menu {
+        position: static;
+        float: none;
+        width: 100%;
+        margin-top: 0;
+    }
+    
+    /* Hero section */
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    /* About section */
+    .about-content {
+        font-size: 1rem;
+        text-align: left;
+    }
+    
+    /* Officers section */
+    .officer-card {
+        margin-bottom: 20px;
+    }
+    
+    /* Counters section */
+    .col-6 {
+        width: 50%;
+    }
+    
+    .counter-number {
+        font-size: 2rem;
+    }
+    
+    .counter-label {
+        font-size: 0.9rem;
+    }
+    
+    /* Facilities section */
+    .facility-card {
+        flex-direction: column;
+        margin-bottom: 30px;
+    }
+    
+    .facility-image, 
+    .facility-content {
+        width: 100%;
+    }
+    
+    .facility-image {
+        height: 200px;
+        order: 1;
+    }
+    
+    .facility-content {
+        order: 2;
+    }
+    
+    /* Gallery section */
+    .col-md-3 {
+        width: 50%;
+    }
+    
+    .gallery-item {
+        height: 200px;
+    }
+    
+    /* E-services section */
+    .col-md-2 {
+        width: 33.33%;
+    }
+    
+    .service-card {
+        padding: 20px 10px;
+    }
+    
+    /* Footer */
+    .footer .row > div {
+        margin-bottom: 30px;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    /* Accessibility button */
+    .accessibility-btn {
+        bottom: 15px;
+        right: 15px;
+        padding: 10px 15px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    /* Extra small devices */
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    .col-6, 
+    .col-md-3, 
+    .col-md-2 {
+        width: 100%;
+    }
+    
+    .counter-card,
+    .service-card {
+        margin-bottom: 15px;
+    }
+    
+    .header-badge {
+        font-size: 0.7rem;
+        padding: 6px 10px;
+    }
+    
+    .top-bar .col-md-6 {
+        text-align: center;
+        margin-bottom: 5px;
+    }
+    
+    .top-bar .d-flex {
+        justify-content: center;
+    }
+}
+
+/* Additional Mobile Optimizations */
+/* Improve touch targets */
+.navbar-toggler,
+.btn,
+.nav-link,
+.dropdown-item,
+.gallery-item,
+.service-card,
+.helpline-item,
+.form-item {
+    min-height: 44px; /* Minimum touch target size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Prevent horizontal scrolling */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Improve text readability on mobile */
+body {
+    font-size: 16px; /* Prevent zoom on iOS */
+    -webkit-text-size-adjust: 100%;
+}
+
+/* Optimize images for mobile */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Improve form elements for touch */
+.form-control,
+.btn {
+    font-size: 16px; /* Prevent zoom on iOS */
+}
 </style>
   <body>
    
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Top Bar -->
     <div class="top-bar">
