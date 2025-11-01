@@ -1,0 +1,1735 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/Navbar.css" />
+    <link rel="stylesheet" href="./styles/Homepage.css" />
+    <link rel="stylesheet" href="./styles/Footer.css" />
+    <link rel="stylesheet" href="./styles/Sitemap.css" />
+    <link rel="stylesheet" href="./styles/PopupLogo.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+   <style>
+    :root {
+            --primary: #1a237e;
+            --primary-light: #534bae;
+            --primary-dark: #000051;
+            --secondary: #ff6f00;
+            --secondary-light: #ffa040;
+            --secondary-dark: #c43e00;
+            --accent: #00c853;
+            --accent-light: #5efc82;
+            --accent-dark: #009624;
+            --light: #e3f2fd;
+            --dark: #0d47a1;
+            --text: #212121;
+            --text-light: #757575;
+            --background: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--background);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--primary);
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+
+        .section-title.left:after {
+            left: 0;
+            transform: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border: none;
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-weight: 600;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+        }
+
+        .btn-outline-primary {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 50px;
+            padding: 10px 25px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .card {
+            border: none;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+         /* UPDATED HEADER STYLES */
+        .top-bar {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 6px 0;
+            font-size: 0.85rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo-header {
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+            padding: 15px 0;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid var(--secondary);
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            height: 65px;
+            width: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .village-info {
+            flex: 1;
+        }
+
+        .village-name {
+            color: var(--primary);
+            font-weight: 800;
+            margin-bottom: 0;
+            font-size: 1.8rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .village-subtitle {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: -5px;
+        }
+
+        .header-badges {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .header-badge {
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+            color: var(--white);
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            white-space: nowrap;
+        }
+
+        .header-badge.secondary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+        }
+
+        .nav-bar {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            padding: 0;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--white) !important;
+            font-weight: 500;
+            padding: 15px 20px !important;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .navbar-nav .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar-nav .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 20px;
+            right: 20px;
+            height: 3px;
+            background-color: white;
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .navbar-nav .nav-link:hover:after,
+        .navbar-nav .nav-link.active:after {
+            transform: scaleX(1);
+        }
+
+        .dropdown-menu {
+            border: none;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-hover);
+            padding: 10px 0;
+        }
+
+        .dropdown-item {
+            padding: 10px 20px;
+            transition: var(--transition);
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--light);
+            color: var(--primary);
+        }
+
+        .marquee {
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 8px 0;
+            font-weight: 500;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 85vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./Img/slide1.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 111, 0, 0.9);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-line {
+            width: 100px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 0 auto 30px;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .about-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .important-links-card {
+            height: 100%;
+        }
+
+        .important-links-card .card-body {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        /* Officers Section */
+        .officers-section {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+
+        .officer-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: var(--border-radius);
+            background: var(--white);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .officer-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .officer-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 5px solid var(--light);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .officer-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .officer-position {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .officer-contact {
+            color: var(--text-light);
+        }
+
+        /* Counters Section */
+        .counters-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+        }
+
+        .counter-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: var(--border-radius);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .counter-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .counter-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .counter-number {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .counter-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Facilities Section */
+        .facilities-section {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .facility-card {
+            display: flex;
+            margin-bottom: 50px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .facility-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .facility-image {
+            width: 40%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .facility-content {
+            width: 60%;
+            padding: 30px;
+            background: var(--white);
+        }
+
+        .facility-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .facility-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .facility-description {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 250px;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: var(--white);
+            padding: 20px;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* E-Alert Section */
+        .ealert-section {
+            padding: 60px 0;
+            background: linear-gradient(135deg,#465354,#36afccba);
+        }
+
+        .service-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: var(--border-radius);
+            background: var(--white);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .service-title {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        /* Plantation Section */
+        .plantation-section {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        /* Helpline Section */
+        .helpline-section {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+
+        .helpline-card, .forms-card {
+            height: 100%;
+        }
+
+        .helpline-item, .form-item {
+            padding: 15px;
+            border-radius: var(--border-radius);
+            background: var(--white);
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .helpline-item:hover, .form-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .helpline-icon, .file-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--white);
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #ff9933, #ffffff, #138808);
+        }
+
+        .footer-title {
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        .quick-links a {
+            display: block;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 12px;
+            transition: var(--transition);
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .quick-links a:before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .quick-links a:hover {
+            color: var(--white);
+            transform: translateX(5px);
+        }
+
+        .quick-links a:hover:before {
+            color: var(--accent);
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-info i {
+            margin-top: 5px;
+            margin-right: 15px;
+            min-width: 20px;
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .social-links a.facebook:hover {
+            color: #3b5998;
+        }
+
+        .social-links a.twitter:hover {
+            color: #1da1f2;
+        }
+
+        .social-links a.instagram:hover {
+            color: #e4405f;
+        }
+
+        .social-links a.youtube:hover {
+            color: #cd201f;
+        }
+
+        .social-links a.whatsapp:hover {
+            color: #25d366;
+        }
+
+        .copyright {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px 0;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .visitor-count {
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+            padding: 8px 15px;
+            border-radius: 50px;
+            display: inline-block;
+            margin: 10px 0;
+            font-weight: 600;
+        }
+
+        .developer-link {
+            color: var(--accent) !important;
+            font-weight: 600;
+        }
+
+        .developer-link:hover {
+            color: var(--white) !important;
+        }
+
+        /* Accessibility Button */
+        .accessibility-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            padding: 14px 22px;
+            box-shadow: var(--shadow-hover);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .accessibility-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .facility-card {
+                flex-direction: column;
+            }
+            
+            .facility-image, .facility-content {
+                width: 100%;
+            }
+            
+            .facility-image {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .counter-number {
+                font-size: 2.5rem;
+            }
+            
+            .accessibility-btn {
+                bottom: 15px;
+                right: 15px;
+                padding: 12px 18px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .officer-img {
+                width: 120px;
+                height: 120px;
+            }
+        }
+        /* Mobile-First Responsive Improvements */
+@media (max-width: 768px) {
+    /* Header improvements */
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .logo-section {
+        flex-direction: column;
+    }
+    
+    .village-name {
+        font-size: 1.5rem;
+    }
+    
+    .header-badges {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    /* Navigation improvements */
+    .navbar-nav .nav-link {
+        padding: 12px 15px !important;
+        text-align: center;
+    }
+    
+    .dropdown-menu {
+        position: static;
+        float: none;
+        width: 100%;
+        margin-top: 0;
+    }
+    
+    /* Hero section */
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    /* About section */
+    .about-content {
+        font-size: 1rem;
+        text-align: left;
+    }
+    
+    /* Officers section */
+    .officer-card {
+        margin-bottom: 20px;
+    }
+    
+    /* Counters section */
+    .col-6 {
+        width: 50%;
+    }
+    
+    .counter-number {
+        font-size: 2rem;
+    }
+    
+    .counter-label {
+        font-size: 0.9rem;
+    }
+    
+    /* Facilities section */
+    .facility-card {
+        flex-direction: column;
+        margin-bottom: 30px;
+    }
+    
+    .facility-image, 
+    .facility-content {
+        width: 100%;
+    }
+    
+    .facility-image {
+        height: 200px;
+        order: 1;
+    }
+    
+    .facility-content {
+        order: 2;
+    }
+    
+    /* Gallery section */
+    .col-md-3 {
+        width: 50%;
+    }
+    
+    .gallery-item {
+        height: 200px;
+    }
+    
+    /* E-services section */
+    .col-md-2 {
+        width: 33.33%;
+    }
+    
+    .service-card {
+        padding: 20px 10px;
+    }
+    
+    /* Footer */
+    .footer .row > div {
+        margin-bottom: 30px;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    /* Accessibility button */
+    .accessibility-btn {
+        bottom: 15px;
+        right: 15px;
+        padding: 10px 15px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    /* Extra small devices */
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    .col-6, 
+    .col-md-3, 
+    .col-md-2 {
+        width: 100%;
+    }
+    
+    .counter-card,
+    .service-card {
+        margin-bottom: 15px;
+    }
+    
+    .header-badge {
+        font-size: 0.7rem;
+        padding: 6px 10px;
+    }
+    
+    .top-bar .col-md-6 {
+        text-align: center;
+        margin-bottom: 5px;
+    }
+    
+    .top-bar .d-flex {
+        justify-content: center;
+    }
+}
+
+/* Additional Mobile Optimizations */
+/* Improve touch targets */
+.navbar-toggler,
+.btn,
+.nav-link,
+.dropdown-item,
+.gallery-item,
+.service-card,
+.helpline-item,
+.form-item {
+    min-height: 44px; /* Minimum touch target size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Prevent horizontal scrolling */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Improve text readability on mobile */
+body {
+    font-size: 16px; /* Prevent zoom on iOS */
+    -webkit-text-size-adjust: 100%;
+}
+
+/* Optimize images for mobile */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Improve form elements for touch */
+.form-control,
+.btn {
+    font-size: 16px; /* Prevent zoom on iOS */
+}
+   </style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    महाराष्ट्र शासन | GOVERNMENT OF MAHARASHTRA
+                </div>
+                <div class="col-md-6 d-flex justify-content-end align-items-center gap-3 flex-wrap">
+                    <span>
+                        <i class="fas fa-envelope me-1"></i>
+                        gptelwade1947@gmail.com
+                    </span>
+                    <div id="google_translate_element"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <!-- Logo Header -->
+    <div class="logo-header">
+        <div class="container">
+            <div class="header-container">
+                <div class="logo-section">
+                    <img src="./Img/main_logo.jpeg" alt="ग्रामपंचायत लोगो" class="logo">
+                    <div class="village-info">
+                        <h2 class="village-name">तेलवडे / Telwade</h2>
+                        <div class="village-subtitle">ग्रामपंचायत | Gram Panchayat</div>
+                    </div>
+                </div>
+                <div class="header-badges">
+                    <div class="header-badge">
+                        <i class="fas fa-award me-1"></i>
+                        आदर्श ग्रामपंचायत
+                    </div>
+                    <div class="header-badge secondary">
+                        <i class="fas fa-star me-1"></i>
+                        डिजिटल ग्राम
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark nav-bar">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html">
+                            <i class="fas fa-home me-1"></i> मुखपृष्ठ
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./members.html">
+                            <i class="fas fa-users me-1"></i> पदाधिकारी
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./villageinfo.html">
+                            <i class="fas fa-info-circle me-1"></i> गावाची माहिती
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./impnumbers.html">
+                            <i class="fas fa-phone-alt me-1"></i> महत्वाचे नंबर
+                        </a>
+                    </li>
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="schemesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fas fa-landmark me-1"></i> शासकीय योजना <i class="fas fa-chevron-down ms-1" style="font-size: 0.8rem;"></i>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="schemesDropdown">
+        <li><a class="dropdown-item" href="./fifteen.html">१५ वित्त आयोग</a></li>
+        <li><a class="dropdown-item" href="./jaljeevan.html">जल जीवन मिशन</a></li>
+        <li><a class="dropdown-item" href="./pmyojna.html">प्रधान मंत्री आवास योजना</a></li>
+        <li><a class="dropdown-item" href="./mgandhi.html">महात्मा गांधी राष्ट्रीय ग्रामीण रोजगार हमी योजना</a></li>
+        <li><a class="dropdown-item" href="./tandavasti.html">तांडा/वस्ती योजना</a></li>
+        <li><a class="dropdown-item" href="./scneo.html">अनुसूचीत जाती व नवबौध्द विकास</a></li>
+        <li><a class="dropdown-item" href="./ramaiyojna.html">रमाई आवास योजना</a></li>
+        <li><a class="dropdown-item" href="./shabriyojna.html">शबरी आदिवासी घरकुल योजना</a></li>
+    </ul>
+</li>
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="beneficiaryDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fas fa-users-line me-1"></i> लाभार्थी रजिस्टर <i class="fas fa-chevron-down ms-1" style="font-size: 0.8rem;"></i>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="beneficiaryDropdown">
+        <li><a class="dropdown-item" href="./pmlabh.html">प्रधानमंत्री आवास योजना</a></li>
+        <li><a class="dropdown-item" href="./shabrilabh.html">शबरी आवास योजना</a></li>
+        <li><a class="dropdown-item" href="./ramailabh.html">रमाई आवास योजना</a></li>
+    </ul>
+</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./services.html">
+                            <i class="fas fa-user-check me-1"></i> नागरिकांसाठी सेवा
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./taxcollect.html">
+                            <i class="fas fa-money-bill-wave me-1"></i> कर संकलन
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./complaint.html">
+                            <i class="fas fa-comments me-1"></i> तक्रार द्या
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Marquee -->
+    <div class="marquee">
+        <div class="container">
+            <marquee behavior="scroll" direction="left">
+                <i class="fas fa-bullhorn me-2"></i>
+                ग्रामपंचायत मध्ये स्वच्छता अभियान चालू आहे. सर्व नागरिकांनी सहभागी व्हावे.
+            </marquee>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="sitemap-container">
+      <div class="sitemap-header">
+        <div class="sitemap-icon">🌐</div>
+        <h1 class="sitemap-title">साईटमॅप</h1>
+        <p class="sitemap-subtitle">
+          ग्रामपंचायत वेबसाइटच्या सर्व विभागांची यादी
+        </p>
+        <div class="sitemap-decoration">
+          <div class="decoration-circle"></div>
+          <div class="decoration-circle"></div>
+          <div class="decoration-circle"></div>
+        </div>
+      </div>
+
+      <div class="sitemap-grid">
+        <div class="sitemap-card" style="animation-delay: 0s">
+          <div class="section-header">
+            <div class="section-icon">🏠</div>
+            <h3 class="section-title">🏠 मुख्य पृष्ठे</h3>
+          </div>
+          <ul class="section-links">
+            <li class="link-item">
+              <a href="./" class="sitemap-link">
+                <span class="link-bullet"></span>
+                मुखपृष्ठ
+              </a>
+            </li>
+            <li class="link-item">
+              <a href="./members.html" class="sitemap-link">
+                <span class="link-bullet"></span>
+                पदाधिकारी
+              </a>
+            </li>
+            <li class="link-item">
+              <a href="./villageinfo.html" class="sitemap-link">
+                <span class="link-bullet"></span>
+                गावाची माहिती
+              </a>
+            </li>
+            <li class="link-item">
+              <a href="./impnumbers.html" class="sitemap-link">
+                <span class="link-bullet"></span>
+                महत्वाचे नंबर
+              </a>
+            </li>
+            <li class="link-item">
+              <a href="./services.html" class="sitemap-link">
+                <span class="link-bullet"></span>
+                नागरिकांसाठी सेवा
+              </a>
+            </li>
+            <li class="link-item">
+              <a href="./complaint.html" class="sitemap-link">
+                <span class="link-bullet"></span>
+                तक्रार द्या
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sitemap-card" style="animation-delay: 0.1s">
+          <div class="section-header">
+            <div class="section-icon">🏗️</div>
+            <h3 class="section-title">🏗️ शासकीय योजना</h3>
+          </div>
+          <ul class="section-links">
+            <li class="link-item">
+              <a href="./fifteen.html" class="sitemap-link">
+                <span class="link-bullet"></span>
+                १५ वित्त आयोग
+              </a>
+            </li>
+            <li class="link-item">
+              <a href="./jaljeevan.html" class="sitemap-link">
+                <span class="link-bullet"></span>
+                जल जीवन मिशन
+              </a>
+            </li>
+            <li class="link-item">
+              <a href="./pmyojna.html" class="sitemap-link">
+                <span class="link-bullet"></span>
+                प्रधान मंत्री आवास योजना
+              </a>
+            </li>
+            <li class="link-item">
+              <a href="./mgandhi.html" class="sitemap-link">
+                <span class="link-bullet"></span>
+                महात्मा गांधी रोजगार योजना
+              </a>
+            </li>
+            <li class="link-item">
+              <a href="./tandavasti.html" class="sitemap-link">
+                <span class="link-bullet"></span>
+                तांडा/वस्ती योजना
+              </a>
+            </li>
+            <li class="link-item">
+              <a href="./scneo.html" class="sitemap-link">
+                <span class="link-bullet"></span>
+                अनुसूचीत जाती व नवबौध्द विकास
+              </a>
+            </li>
+            <li class="link-item">
+              <a href="./ramaiyojna.html" class="sitemap-link">
+                <span class="link-bullet"></span>
+                रमाई आवास योजना
+              </a>
+            </li>
+            <li class="link-item">
+              <a href="./shabriyojna.html" class="sitemap-link">
+                <span class="link-bullet"></span>
+                शबरी आदिवासी घरकुल योजना
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sitemap-card" style="animation-delay: 0.2s">
+          <div class="section-header">
+            <div class="section-icon">📋</div>
+            <h3 class="section-title">📋 लाभार्थी रजिस्टर</h3>
+          </div>
+          <ul class="section-links">
+            <li class="link-item">
+              <a href="./pmlabh.html" class="sitemap-link">
+                <span class="link-bullet"></span>
+                प्रधानमंत्री आवास योजना
+              </a>
+            </li>
+            <li class="link-item">
+              <a href="./shabrilabh.html" class="sitemap-link">
+                <span class="link-bullet"></span>
+                शबरी आवास योजना
+              </a>
+            </li>
+            <li class="link-item">
+              <a href="./ramailabh.html" class="sitemap-link">
+                <span class="link-bullet"></span>
+                रमाई आवास योजना
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sitemap-card" style="animation-delay: 0.3s">
+          <div class="section-header">
+            <div class="section-icon">📰</div>
+            <h3 class="section-title">📰 माध्यम आणि गॅलरी</h3>
+          </div>
+          <ul class="section-links">
+            <li class="link-item">
+              <a href="./#gallery" class="sitemap-link">
+                <span class="link-bullet"></span>
+                गॅलरी
+              </a>
+            </li>
+            <li class="link-item">
+              <a href="./#videos" class="sitemap-link">
+                <span class="link-bullet"></span>
+                व्हिडिओ
+              </a>
+            </li>
+            <li class="link-item">
+              <a href="./#media" class="sitemap-link">
+                <span class="link-bullet"></span>
+                मीडिया कव्हरेज
+              </a>
+            </li>
+            <li class="link-item">
+              <a href="./gralert.html" class="sitemap-link">
+                <span class="link-bullet"></span>
+                शासन निर्णय
+              </a>
+            </li>
+            <li class="link-item">
+              <a href="./#plantation" class="sitemap-link">
+                <span class="link-bullet"></span>
+                वृक्षारोपण
+              </a>
+            </li>
+            <li class="link-item">
+              <a href="./#facilities" class="sitemap-link">
+                <span class="link-bullet"></span>
+                सुविधा
+              </a>
+            </li>
+            <li class="link-item">
+              <a href="./#helpline" class="sitemap-link">
+                <span class="link-bullet"></span>
+                हेल्पलाइन
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sitemap-card" style="animation-delay: 0.4s">
+          <div class="section-header">
+            <div class="section-icon">💰</div>
+            <h3 class="section-title">💰 कर व माहिती</h3>
+          </div>
+          <ul class="section-links">
+            <li class="link-item">
+              <a href="./taxcollect.html" class="sitemap-link">
+                <span class="link-bullet"></span>
+                कर संकलन
+              </a>
+            </li>
+            <li class="link-item">
+              <a href="./impnumbers.html" class="sitemap-link">
+                <span class="link-bullet"></span>
+                संपर्क
+              </a>
+            </li>
+            <li class="link-item">
+              <a href="./villageinfo.html" class="sitemap-link">
+                <span class="link-bullet"></span>
+                आमच्याबद्दल
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sitemap-footer">
+        <p>सर्व हक्क राखीव © <span id="currentYear"></span> ग्रामपंचायत</p>
+      </div>
+    </div>
+
+    <script>
+      // Set current year in footer
+      document.getElementById("currentYear").textContent =
+        new Date().getFullYear();
+    </script>
+
+    <!-- Footer -->
+    <footer class="footer pt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <h5 class="footer-title" data-aos="fade-right">
+              ग्रामपंचायतीची सर्वसाधारण माहिती
+            </h5>
+            <p data-aos="fade-right">
+              ग्रामपंचायतीचे नाव : तेलवडे / Telwade <br />
+              स्थापना : 02 ऑक्टोबर 1959 <br />
+              Email ID: gptelwade1947@gmail.com <br />
+              सेन्सस कोड : 549703 <br />
+              तालुक्यापासून अंतर : अंदाजे १८ किमी <br />
+              जिल्हा मुख्यालयापासून अंतर : अंदाजे ५२ किमी
+            </p>
+
+            <div class="social-links">
+              <a
+                href="https://www.facebook.com/grampanchayt.karyalay.wadegaon.station?rdid=Epd84rOH7LNX90Mh&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F15okEv1vHe%2F#"
+                target="_blank"
+                class="facebook"
+                data-aos="fade-right"
+                title="Facebook"
+              >
+                <i class="fab fa-facebook-f" data-aos="fade-right"></i>
+              </a>
+              <a
+                href="https://chat.whatsapp.com/CRiDcV6irtIDIGq2S96yHA"
+                target="_blank"
+                class="whatsapp"
+                data-aos="fade-right"
+                title="Whatsapp"
+              >
+                <i class="fab fa-whatsapp" data-aos="fade-right"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/gpwadegaonsta/?igsh=MXJvaXJjNHZ5N2poMw%3D%3D#"
+                target="_blank"
+                class="instagram"
+                data-aos="fade-right"
+                title="Instagram"
+              >
+                <i class="fab fa-instagram" data-aos="fade-right"></i>
+              </a>
+              <a
+                href="#"
+                target="_blank"
+                class="youtube"
+                data-aos="fade-right"
+                title="YouTube"
+              >
+                <i class="fab fa-youtube" data-aos="fade-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-4">
+            <h5 class="footer-title" data-aos="fade-right">द्रुत लिंक</h5>
+            <div class="quick-links">
+              <a href="./" data-aos="fade-right"> मुख्य पृष्ठ </a>
+              <a href="./villageinfo.html" data-aos="fade-right">
+                ग्रामपंचायती विषयी
+              </a>
+              <a href="./villageinfo.html" data-aos="fade-right">
+                आर्थिक माहिती
+              </a>
+              <a href="./fifteen.html" data-aos="fade-right"> योजना व कामे </a>
+              <a href="./services.html" data-aos="fade-right"> ऑनलाइन सेवा </a>
+              <a href="./#gallery" data-aos="fade-right"> गॅलरी </a>
+              <a href="./impnumbers.html" data-aos="fade-right"> संपर्क </a>
+              <a href="./sitemap.html" data-aos="fade-right"> 🌐 साईटमॅप </a>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-4">
+            <h5 class="footer-title" data-aos="fade-right">संपर्क</h5>
+            <div class="contact-info">
+              <p data-aos="fade-left">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>
+                  ग्रामपंचायत वडेगाव,
+                  <br />
+                  ता.अर्जुनी/मोरगाव, जि. गोंदिया,
+                  <br />
+                  पिन. ४४१७०१
+                </span>
+              </p>
+              <p data-aos="fade-left">
+                <i class="fas fa-phone-alt"></i>
+                <span>+९१ 9370694651</span>
+              </p>
+              <p data-aos="fade-left">
+                <i class="fas fa-envelope"></i>
+                <span>gptelwade1947@gmail.com</span>
+              </p>
+              <p data-aos="fade-left">
+                <i class="fas fa-clock"></i>
+                <span>सोम-शनि: ९:०० AM - ५:०० PM</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="copyright text-center mt-4">
+        <div class="container">
+          <p class="mb-2" data-aos="fade-up">
+            © २०२५ तेलवडे / Telwade. सर्व हक्क राखीव.
+          </p>
+          <p class="mb-2">
+            <span class="visitor-count">
+              <i class="fas fa-eye me-1"></i>
+              <span id="visitorCounter">१२,८९६</span> भेटी
+            </span>
+          </p>
+          <p class="mb-0">
+            Design & Developed By
+            <a href="#" class="developer-link">KUMIRADI INFOTECH </a>
+            [7507962607]
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Accessibility Button -->
+    <button
+      class="accessibility-btn"
+      onclick="toggleAccessibility()"
+      title="Accessibility Options"
+    >
+      <i class="fas fa-universal-access"></i>
+    </button>
+
+    <!-- Accessibility Panel -->
+    <div id="accessibility-panel">
+      <div class="panel-header">
+        <h6>Accessibility Options</h6>
+        <button class="close-panel" onclick="toggleAccessibility()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="accessibility-option">
+        <button class="font-size-btn" onclick="increaseFontSize()">
+          <i class="fas fa-text-height"></i> Increase Text Size
+        </button>
+      </div>
+      <div class="accessibility-option">
+        <button class="font-size-btn" onclick="decreaseFontSize()">
+          <i class="fas fa-text-width"></i> Decrease Text Size
+        </button>
+      </div>
+      <div class="accessibility-option">
+        <button class="contrast-btn" onclick="toggleHighContrast()">
+          <i class="fas fa-adjust"></i> High Contrast
+        </button>
+      </div>
+      <div class="accessibility-option">
+        <button class="font-size-btn" onclick="readAloud()">
+          <i class="fas fa-volume-up"></i> Read Aloud
+        </button>
+      </div>
+      <div class="accessibility-option">
+        <button class="font-size-btn" onclick="stopReading()">
+          <i class="fas fa-stop"></i> Stop Reading
+        </button>
+      </div>
+      <div class="accessibility-option">
+        <button class="reset-btn" onclick="resetAccessibility()">
+          <i class="fas fa-redo"></i> Reset All
+        </button>
+      </div>
+    </div>
+
+    <!-- Add Required Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+      // Initialize AOS
+      document.addEventListener("DOMContentLoaded", function () {
+        if (typeof AOS !== "undefined") {
+          AOS.init({
+            duration: 1000,
+            once: true,
+            easing: "ease-in-out",
+          });
+        }
+      });
+
+      // Accessibility Functions
+      let currentFontSize = 100;
+      let isHighContrast = false;
+      let speech = null;
+
+      function toggleAccessibility() {
+        const panel = document.getElementById("accessibility-panel");
+        if (panel.style.display === "none" || panel.style.display === "") {
+          panel.style.display = "block";
+        } else {
+          panel.style.display = "none";
+        }
+      }
+
+      function increaseFontSize() {
+        currentFontSize += 10;
+        if (currentFontSize > 150) currentFontSize = 150;
+        document.body.style.fontSize = currentFontSize + "%";
+      }
+
+      function decreaseFontSize() {
+        currentFontSize -= 10;
+        if (currentFontSize < 80) currentFontSize = 80;
+        document.body.style.fontSize = currentFontSize + "%";
+      }
+
+      function toggleHighContrast() {
+        isHighContrast = !isHighContrast;
+        if (isHighContrast) {
+          document.body.style.filter = "contrast(150%) brightness(110%)";
+        } else {
+          document.body.style.filter = "none";
+        }
+      }
+
+      function readAloud() {
+        if ("speechSynthesis" in window) {
+          // Stop any ongoing speech
+          window.speechSynthesis.cancel();
+
+          // Get page content (simplified for demo)
+          const content = document.body.innerText;
+
+          // Create and configure speech
+          const utterance = new SpeechSynthesisUtterance(content);
+          utterance.rate = 0.9;
+          utterance.pitch = 1;
+          utterance.volume = 0.8;
+
+          // Speak the text
+          window.speechSynthesis.speak(utterance);
+          speech = utterance;
+        } else {
+          alert("Sorry, your browser does not support text-to-speech.");
+        }
+      }
+
+      function stopReading() {
+        if ("speechSynthesis" in window) {
+          window.speechSynthesis.cancel();
+        }
+      }
+
+      function resetAccessibility() {
+        currentFontSize = 100;
+        isHighContrast = false;
+        document.body.style.fontSize = "100%";
+        document.body.style.filter = "none";
+        document.body.classList.remove("dark-mode");
+        stopReading();
+      }
+
+      // Close panel when clicking outside
+      document.addEventListener("click", function (event) {
+        const panel = document.getElementById("accessibility-panel");
+        const button = document.querySelector(".accessibility-btn");
+
+        if (
+          panel.style.display === "block" &&
+          !panel.contains(event.target) &&
+          !button.contains(event.target)
+        ) {
+          panel.style.display = "none";
+        }
+      });
+
+      // Simple visitor counter
+      let visitorCount = 12896;
+      function updateVisitorCounter() {
+        visitorCount++;
+        document.getElementById("visitorCounter").textContent =
+          visitorCount.toLocaleString("mr-IN");
+      }
+
+      // Update counter on page load
+      updateVisitorCounter();
+    </script>
+    <div id="popupOverlay" class="popup-overlay" style="display: none">
+      <div class="popup-content">
+        <button class="close-btn" id="closePopup">&times;</button>
+        <img src="./Img/popup.jpeg" alt="Popup" class="popup-image" />
+      </div>
+    </div>
+
+    <script>
+      // Add this script to each HTML page
+      document.addEventListener("DOMContentLoaded", function () {
+        const popupOverlay = document.getElementById("popupOverlay");
+        const closePopup = document.getElementById("closePopup");
+
+        // Check if page was reloaded or it's first visit
+        const isReloaded = performance.navigation.type === 1;
+        const hasSeenPopup = sessionStorage.getItem("hasSeenPopup");
+
+        // Show popup on first visit OR page reload
+        if (!hasSeenPopup || isReloaded) {
+          popupOverlay.style.display = "flex";
+          sessionStorage.setItem("hasSeenPopup", "true");
+        }
+
+        closePopup.addEventListener("click", function () {
+          popupOverlay.style.display = "none";
+        });
+
+        popupOverlay.addEventListener("click", function (e) {
+          if (e.target === popupOverlay) {
+            popupOverlay.style.display = "none";
+          }
+        });
+
+        // Close with Escape key
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && popupOverlay.style.display === "flex") {
+            popupOverlay.style.display = "none";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
