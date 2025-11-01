@@ -6,12 +6,17 @@
     <title>तेलवडे / Telwade</title>
     
 <!-- Local CSS Files -->
-<link rel="stylesheet" href="./styles/Navbar.css" />
-<link rel="stylesheet" href="./styles/Homepage.css" />
-<link rel="stylesheet" href="./styles/Footer.css" />
-<link rel="stylesheet" href="./styles/impnumbers.css" />
-<link rel="stylesheet" href="./styles/PopupLogo.css" />
-<link rel="stylesheet" href="./styles/govtsec.css">
+    <link rel="stylesheet" href="./styles/Navbar.css" />
+    <link rel="stylesheet" href="./styles/weather.css" />
+    <link rel="stylesheet" href="./styles/facilities.css" />
+    <link rel="stylesheet" href="./styles/videosection.css" />
+    <link rel="stylesheet" href="./styles/govtsec.css" />
+    <link rel="stylesheet" href="./styles/EAlert.css" />
+    <link rel="stylesheet" href="./styles/Footer.css" />
+    <link rel="stylesheet" href="./styles/media.css" />
+    <link rel="stylesheet" href="./styles/plantation.css" />
+    <link rel="stylesheet" href="./styles/Homepage.css" />
+    <link rel="stylesheet" href="./styles/PopupLogo.css" />
 
 <!-- CSS Libraries -->
 <link
@@ -1121,6 +1126,7 @@ img {
         </div>
     </div>
 
+    
 <!-- Navigation Bar -->
 <nav class="navbar navbar-expand-lg navbar-dark nav-bar">
     <div class="container">
@@ -1152,10 +1158,13 @@ img {
                 </li>
                 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="schemesDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-landmark me-1"></i> शासकीय योजना 
-                        <i class="fas fa-chevron-down ms-1 dropdown-arrow"></i>
-                    </a>
+                    <a
+                class="nav-link text-white fw-semibold hover-link text-white"
+                href="./fifteen.html"
+              >
+                <i class="fa-solid fa-landmark text-white"></i>
+                शासकीय योजना
+              </a>
                     <ul class="dropdown-menu" aria-labelledby="schemesDropdown">
                         <li><a class="dropdown-item" href="./fifteen.html">१५ वित्त आयोग</a></li>
                         <li><a class="dropdown-item" href="./jaljeevan.html">जल जीवन मिशन</a></li>
@@ -1169,10 +1178,13 @@ img {
                 </li>
                 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="beneficiaryDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-users-line me-1"></i> लाभार्थी रजिस्टर
-                        <i class="fas fa-chevron-down ms-1 dropdown-arrow"></i>
-                    </a>
+        <!--लाभार्थी रजिस्टर-->      <a 
+                class="nav-link text-white fw-semibold text-white px-2 hover-link"
+                href="./pmlabh.html"
+              >
+                <i class="fa-solid fa-users-line text-white"></i>
+                लाभार्थी रजिस्टर
+              </a>
                     <ul class="dropdown-menu" aria-labelledby="beneficiaryDropdown">
                         <li><a class="dropdown-item" href="./pmlabh.html">प्रधानमंत्री आवास योजना</a></li>
                         <li><a class="dropdown-item" href="./shabrilabh.html">शबरी आवास योजना</a></li>
@@ -1433,6 +1445,105 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     </section>
 
+<!-- Search Section -->
+    <div class="container">
+      <!-- Search and Weather Container -->
+      <div class="search-weather-container">
+        <!-- Weather Section - Left Side -->
+        <div class="weather-section mt-5">
+          <div class="weather-data">
+            <div class="weather-header">
+              <i class="fas fa-map-marker-alt"></i>
+              <span class="weather-location">तेलवडे, गोंदिया</span>
+              <button class="weather-refresh-btn" title="Refresh weather">
+                <i class="fas fa-sync-alt"></i>
+              </button>
+            </div>
+            <div class="weather-main">
+              <div class="weather-icon-temp">
+                <i class="fas fa-cloud-sun"></i>
+                <div class="temperature">
+                  <span class="temp-value">28°C</span>
+                  <span class="temp-feels">जाणवते: 30°C</span>
+                </div>
+              </div>
+              <div class="weather-details">
+                <span class="weather-desc">सौम्य ढगाळ</span>
+                <div class="weather-stats">
+                  <div class="weather-stat">
+                    <i class="fas fa-tint"></i>
+                    <span>65%</span>
+                  </div>
+                  <div class="weather-stat">
+                    <i class="fas fa-wind"></i>
+                    <span>3.5 m/s</span>
+                  </div>
+                  <div class="weather-stat">
+                    <i class="fas fa-gauge-high"></i>
+                    <span>1013 hPa</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="weather-sun-times">
+              <div class="sun-time">
+                <i class="fas fa-sun"></i>
+                <span>सूर्योदय: 06:15</span>
+              </div>
+              <div class="sun-time">
+                <i class="fas fa-moon"></i>
+                <span>सूर्यास्त: 18:45</span>
+              </div>
+            </div>
+            <div class="weather-timestamp">
+              <small>अद्ययावत: २८/१२/२०२३, १०:३० AM</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Search Section - Right Side -->
+        <div class="search-section">
+          <div class="search-box">
+            <div class="search-input-group">
+              <i class="fas fa-search search-icon"></i>
+              <input
+                type="text"
+                class="search-input"
+                placeholder="इथे शोधा..."
+                value=""
+              />
+              <button
+                type="button"
+                class="clear-search"
+                aria-label="Clear search"
+                style="display: none"
+              >
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Search Results Dropdown - Positioned below search box -->
+          <div class="search-results-dropdown" style="display: none">
+            <div class="search-results-header">
+              <span>शोध निकाल: ""</span>
+              <button class="close-results" aria-label="Close results">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+
+            <div class="search-results-body">
+              <div class="no-results">
+                <i class="fas fa-search no-results-icon"></i>
+                <p>'' साठी कोणतेही निकाल सापडले नाहीत</p>
+                <small>कृपया वेगळे कीवर्ड वापरून पहा</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
     <!-- About Section -->
     <section id="about" class="about-section">
         <div class="container">
@@ -1458,7 +1569,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <a href="https://www.maharashtra.gov.in/" target="_blank" class="btn btn-outline-primary w-100 mb-2">महाराष्ट्र शासन</a>
                             <a href="https://rdd.maharashtra.gov.in/" target="_blank" class="btn btn-outline-primary w-100 mb-2">ग्रामीण विकास व पंचायतराज विभाग</a>
                             <a href="https://Telwade.gov.in/" target="_blank" class="btn btn-outline-primary w-100 mb-2">जिल्हाधिकारी कार्यालय</a>
-                            <a href="https://www.Telwadepolice.gov.in/" target="_blank" class="btn btn-outline-primary w-100 mb-2">गोंदिया पोलीस</a>
+                            <a href="https://www.Telwadepolice.gov.in/" target="_blank" class="btn btn-outline-primary w-100 mb-2">रायगडपोलीस</a>
                             <a href="https://aaplesarkar.mahaonline.gov.in/" target="_blank" class="btn btn-outline-primary w-100 mb-2">आपले सरकार सेवा</a>
                             <a href="https://mahadbt.maharashtra.gov.in/login/login" target="_blank" class="btn btn-outline-primary w-100">महा DBT</a>
                         </div>
@@ -2167,7 +2278,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <p>
                             <i class="fas fa-map-marker-alt"></i>
                             <span>
-                                ग्रामपंचायत वडेगाव, <br>
+                                ग्रामपंचायत तेलवडे, <br>
                                 ता.मुरुड , जि. रायगड , <br>
                                 पिन. ४०२४०१
                             </span>
@@ -2260,6 +2371,330 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('visitorCounter').textContent = visitorCount.toLocaleString('mr-IN');
         }
         updateVisitorCounter();
+         // DOM elements // Weather API configuration
+      const searchInput = document.querySelector(".search-input");
+      const clearSearchBtn = document.querySelector(".clear-search");
+      const searchResults = document.querySelector(".search-results-dropdown");
+      const resultsHeader = searchResults.querySelector(
+        ".search-results-header span"
+      );
+      const resultsBody = searchResults.querySelector(".search-results-body");
+      const weatherRefreshBtn = document.querySelector(".weather-refresh-btn");
+      const weatherLocation = document.querySelector(".weather-location");
+      const tempValue = document.querySelector(".temp-value");
+      const tempFeels = document.querySelector(".temp-feels");
+      const weatherDesc = document.querySelector(".weather-desc");
+      const weatherIcon = document.querySelector(".weather-icon-temp i");
+      const humidityStat = document.querySelector(
+        ".weather-stat:nth-child(1) span"
+      );
+      const windStat = document.querySelector(
+        ".weather-stat:nth-child(2) span"
+      );
+      const pressureStat = document.querySelector(
+        ".weather-stat:nth-child(3) span"
+      );
+      const sunTimes = document.querySelector(".weather-sun-times");
+      const timestamp = document.querySelector(".weather-timestamp small");
+      const closeResultsBtn = document.querySelector(".close-results");
+
+      const WEATHER_CONFIG = {
+        apiKey: "c8fdcc2319595e62f2b13dad5b95ad7d",
+        city: "Gondia",
+        country: "IN",
+        units: "metric",
+        language: "mr",
+      };
+
+      // Homepage content for searching
+      const homepageContent = [
+        {
+          id: 1,
+          title: "गावा विषयी",
+          category: "माहिती",
+          description:
+            "ग्रामपंचायत तेलवडे(स्टेशन) हे रायगडजिल्ह्यातील अर्जुनी/मोरगाव तालुक्यात वसलेले एक शेती प्रधान आणि प्रगतशील गाव",
+          keywords: [
+            "गाव",
+            "तेलवडे",
+            "गोंदिया",
+            "ग्रामपंचायत",
+            "माहिती",
+            "परिचय",
+          ],
+          link: "#about-section",
+          type: "internal",
+        },
+        {
+          id: 2,
+          title: "ग्रामपंचायत अधिकारी",
+          category: "अधिकारी",
+          description: "सरपंच, उपसरपंच आणि ग्रामपंचायत अधिकारी यांची माहिती",
+          keywords: [
+            "सरपंच",
+            "उपसरपंच",
+            "अधिकारी",
+            "संपर्क",
+            "लोणारे",
+            "रामटेके",
+            "अवसरे",
+          ],
+          link: "#officers-section",
+          type: "internal",
+        },
+        {
+          id: 3,
+          title: "सुविधा आणि सेवा",
+          category: "सुविधा",
+          description:
+            "पाणी, वीज, रस्ते, आरोग्य केंद्र, शाळा, अंगणवाडी इत्यादी सुविधा",
+          keywords: [
+            "पाणी",
+            "वीज",
+            "रस्ते",
+            "आरोग्य",
+            "शाळा",
+            "अंगणवाडी",
+            "सुविधा",
+            "सेवा",
+          ],
+          link: "#facilities-section",
+          type: "internal",
+        },
+        {
+          id: 4,
+          title: "शासकीय योजना",
+          category: "योजना",
+          description:
+            "१५ वित्त आयोग, जल जीवन मिशन, प्रधान मंत्री आवास योजना, महात्मा गांधी रोजगार हमी योजना",
+          keywords: [
+            "योजना",
+            "जल जीवन",
+            "आवास",
+            "रोजगार",
+            "तांडा",
+            "वस्ती",
+            "रमाई",
+            "शबरी",
+          ],
+          link: "#schemes-section",
+          type: "internal",
+        },
+        {
+          id: 5,
+          title: "लोकसंख्या",
+          category: "माहिती",
+          description: "गावातील लोकसंख्या, कुटुंबांची संख्या, पुरुष-महिला गणना",
+          keywords: ["लोकसंख्या", "कुटुंब", "पुरुष", "महिला", "गणना", "संख्या"],
+          link: "#about-section",
+          type: "internal",
+        },
+        {
+          id: 6,
+          title: "स्वच्छता अभियान",
+          category: "कार्यक्रम",
+          description: "ग्रामपंचायत मध्ये चालू असलेले स्वच्छता अभियान",
+          keywords: ["स्वच्छता", "अभियान", "सफाई", "कचरा", "व्यवस्थापन"],
+          link: "#facilities-section",
+          type: "internal",
+        },
+      ];
+
+      // Event listeners
+      searchInput.addEventListener("input", handleSearch);
+      searchInput.addEventListener("focus", handleInputFocus);
+      clearSearchBtn.addEventListener("click", clearSearch);
+      weatherRefreshBtn.addEventListener("click", fetchWeatherData);
+      closeResultsBtn.addEventListener("click", closeResults);
+
+      // Close search results when clicking outside
+      document.addEventListener("click", function (event) {
+        if (!event.target.closest(".search-section")) {
+          closeResults();
+        }
+      });
+
+      // Keyboard navigation
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && searchResults.style.display === "block") {
+          closeResults();
+          searchInput.focus();
+        }
+      });
+
+      // Initialize weather data on page load
+      document.addEventListener("DOMContentLoaded", function () {
+        fetchWeatherData();
+      });
+
+      // Functions
+      function handleSearch(e) {
+        const searchTerm = e.target.value.trim();
+
+        if (searchTerm === "") {
+          closeResults();
+          clearSearchBtn.style.display = "none";
+          return;
+        }
+
+        clearSearchBtn.style.display = "block";
+
+        // Perform search
+        const results = performSearch(searchTerm);
+
+        // Update UI with results
+        updateSearchResults(searchTerm, results);
+      }
+
+      function performSearch(searchTerm) {
+        const lowerSearchTerm = searchTerm.toLowerCase();
+
+        return homepageContent.filter((item) => {
+          return (
+            item.title.toLowerCase().includes(lowerSearchTerm) ||
+            item.description.toLowerCase().includes(lowerSearchTerm) ||
+            item.keywords.some((keyword) =>
+              keyword.toLowerCase().includes(lowerSearchTerm)
+            ) ||
+            item.category.toLowerCase().includes(lowerSearchTerm)
+          );
+        });
+      }
+
+      function updateSearchResults(searchTerm, results) {
+        resultsHeader.textContent = `शोध निकाल: "${searchTerm}"`;
+
+        if (results.length > 0) {
+          // Clear previous results
+          resultsBody.innerHTML = "";
+
+          // Create results list
+          const resultsList = document.createElement("div");
+          resultsList.className = "search-results-list";
+
+          // Add each result to the list
+          results.forEach((result) => {
+            const resultItem = document.createElement("div");
+            resultItem.className = "search-result-item";
+            resultItem.setAttribute("role", "button");
+            resultItem.setAttribute("tabindex", "0");
+
+            resultItem.innerHTML = `
+                        <div class="result-content">
+                            <div class="result-header">
+                                <h6 class="result-title">${result.title}</h6>
+                                <span class="result-category">${
+                                  result.category
+                                }</span>
+                            </div>
+                            <p class="result-description">${
+                              result.description
+                            }</p>
+                            <div class="result-keywords">
+                                ${result.keywords
+                                  .slice(0, 3)
+                                  .map(
+                                    (keyword) =>
+                                      `<span class="keyword-tag">${keyword}</span>`
+                                  )
+                                  .join("")}
+                            </div>
+                        </div>
+                        <i class="fas fa-chevron-right result-arrow"></i>
+                    `;
+
+            resultItem.addEventListener("click", () =>
+              navigateToResult(result)
+            );
+            resultItem.addEventListener("keydown", (e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                navigateToResult(result);
+              }
+            });
+
+            resultsList.appendChild(resultItem);
+          });
+
+          resultsBody.appendChild(resultsList);
+        } else {
+          // Show no results message
+          resultsBody.innerHTML = `
+                    <div class="no-results">
+                        <i class="fas fa-search no-results-icon"></i>
+                        <p>'${searchTerm}' साठी कोणतेही निकाल सापडले नाहीत</p>
+                        <small>कृपया वेगळे कीवर्ड वापरून पहा</small>
+                    </div>
+                `;
+        }
+
+        // Show results dropdown
+        searchResults.style.display = "block";
+      }
+
+      function navigateToResult(result) {
+        console.log("Navigating to:", result);
+        closeResults();
+        searchInput.value = "";
+        clearSearchBtn.style.display = "none";
+
+        if (result.link) {
+          if (result.link.startsWith("#")) {
+            const element = document.querySelector(result.link);
+            if (element) {
+              element.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }
+          } else {
+            window.location.href = result.link;
+          }
+        }
+      }
+
+      function handleInputFocus() {
+        if (searchInput.value.trim() !== "") {
+          const searchTerm = searchInput.value.trim();
+          const results = performSearch(searchTerm);
+          updateSearchResults(searchTerm, results);
+        }
+      }
+
+      function clearSearch() {
+        searchInput.value = "";
+        closeResults();
+        clearSearchBtn.style.display = "none";
+        searchInput.focus();
+      }
+
+      function closeResults() {
+        searchResults.style.display = "none";
+      }
+
+      async function fetchWeatherData() {
+        try {
+          // Show loading state
+          weatherRefreshBtn.querySelector("i").classList.add("fa-spin");
+
+          const response = await fetch(
+            `https://api.openweathermap.org/data/2.5/weather?q=${WEATHER_CONFIG.city},${WEATHER_CONFIG.country}&units=${WEATHER_CONFIG.units}&lang=${WEATHER_CONFIG.language}&appid=${WEATHER_CONFIG.apiKey}`
+          );
+
+          if (!response.ok) {
+            throw new Error(`Weather API error: ${response.status}`);
+          }
+
+          const data = await response.json();
+          updateWeatherUI(data);
+        } catch (error) {
+          console.error("Error fetching weather data:", error);
+          // Fallback to static data if API fails
+          updateWeatherUIWithFallback();
+        } finally {
+          weatherRefreshBtn.querySelector("i").classList.remove("fa-spin");
+        }
+      }
     </script>
 </body>
 </html>
