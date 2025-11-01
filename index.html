@@ -1038,6 +1038,120 @@
     }
 }
 
+.carousel-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+        z-index: 10;
+        transition: all 0.3s ease;
+      }
+
+      .carousel-nav:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+
+      .carousel-prev {
+        left: 20px;
+      }
+
+      .carousel-next {
+        right: 20px;
+      }
+
+      .carousel-indicators {
+        position: absolute;
+        bottom: 30px;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        z-index: 10;
+      }
+
+      .carousel-indicator {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .carousel-indicator.active {
+        background: #ffc107;
+        transform: scale(1.2);
+      }
+
+      .carousel-progress {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.2);
+        z-index: 10;
+      }
+
+      .carousel-progress-bar {
+        height: 100%;
+        width: 0%;
+        background: #ffc107;
+        transition: width 0.1s linear;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .beautiful-carousel {
+          height: 60vh;
+        }
+
+        .caption-title {
+          font-size: 1.8rem;
+        }
+
+        .caption-subtitle {
+          font-size: 1rem;
+        }
+
+        .carousel-nav {
+          width: 40px;
+          height: 40px;
+          font-size: 16px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .beautiful-carousel {
+          height: 50vh;
+        }
+
+        .caption-title {
+          font-size: 1.5rem;
+        }
+
+        .caption-subtitle {
+          font-size: 0.9rem;
+        }
+
+        .btn-explore {
+          padding: 10px 20px;
+          font-size: 14px;
+        }
+      }
+
 /* Additional Mobile Optimizations */
 /* Improve touch targets */
 .navbar-toggler,
@@ -1454,7 +1568,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <div class="weather-data">
             <div class="weather-header">
               <i class="fas fa-map-marker-alt"></i>
-              <span class="weather-location">तेलवडे, गोंदिया</span>
+              <span class="weather-location">तेलवडे, रायगड</span>
               <button class="weather-refresh-btn" title="Refresh weather">
                 <i class="fas fa-sync-alt"></i>
               </button>
@@ -2232,6 +2346,294 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
         </div>
 
+<!-- Add this section after the Helpline Section and before the Footer -->
+<section class="icon-carousel-section">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">सरकारी योजना आणि सेवा</h2>
+        <p class="text-center mb-4" data-aos="fade-up" data-aos-delay="100">
+            महत्वाच्या सरकारी योजना आणि सेवांचे दुवे
+        </p>
+        
+        <div class="icon-carousel-container">
+            <div class="icon-carousel-track">
+                <!-- Icons will be dynamically added here -->
+            </div>
+        </div>
+        
+        <div class="carousel-controls">
+    
+<p class="carousel-control prev"></p>
+    <div class="carousel-control next"></div>
+</div>
+    </div>
+</section>
+
+<style>
+    /* Icon Carousel Styles */
+    .icon-carousel-section {
+        padding: 60px 0;
+        background-color: var(--light);
+        overflow: hidden;
+    }
+    
+    .icon-carousel-container {
+        position: relative;
+        max-width: 100%;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    
+    .icon-carousel-track {
+        display: flex;
+        transition: transform 0.8s ease;
+        gap: 20px;
+        padding: 10px 0;
+        will-change: transform;
+    }
+    
+    .icon-carousel-item {
+        flex: 0 0 auto;
+        width: 150px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+    
+    .icon-carousel-item:hover {
+        transform: translateY(-5px);
+    }
+    
+    .icon-image {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        background: var(--white);
+        padding: 10px;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+    }
+    
+    .icon-carousel-item:hover .icon-image {
+        transform: scale(1.05);
+        box-shadow: var(--shadow-hover);
+    }
+    
+    .icon-title {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--primary);
+        margin: 0;
+        line-height: 1.3;
+    }
+    
+    .carousel-controls {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 20px;
+    }
+    
+    
+    
+    .carousel-control:hover {
+        background: var(--primary-dark);
+        transform: scale(1.1);
+    }
+    
+    .carousel-control:active {
+        transform: scale(0.95);
+    }
+    
+    /* Infinite scroll animation */
+    @keyframes infiniteScroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-150px * 6 - 20px * 6)); /* Move by half the content width */
+        }
+    }
+    
+    .icon-carousel-track.auto-scroll {
+        animation: infiniteScroll 30s linear infinite;
+    }
+    
+    .icon-carousel-track.auto-scroll:hover {
+        animation-play-state: paused;
+    }
+    
+    /* Responsive styles */
+    @media (max-width: 768px) {
+        .icon-carousel-item {
+            width: 120px;
+        }
+        
+        .icon-image {
+            width: 60px;
+            height: 60px;
+        }
+        
+        .icon-title {
+            font-size: 0.8rem;
+        }
+        
+        @keyframes infiniteScroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-120px * 6 - 20px * 6));
+            }
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .icon-carousel-item {
+            width: 100px;
+        }
+        
+        .icon-image {
+            width: 50px;
+            height: 50px;
+        }
+        
+        .icon-title {
+            font-size: 0.75rem;
+        }
+        
+        @keyframes infiniteScroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-100px * 6 - 20px * 6));
+            }
+        }
+    }
+</style>
+
+<script>
+    // Icon Carousel Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const iconTrack = document.querySelector('.icon-carousel-track');
+        const prevBtn = document.querySelector('.carousel-control.prev');
+        const nextBtn = document.querySelector('.carousel-control.next');
+        
+        // Icon data - replace with your actual icons and links
+        const icons = [
+            { src: './Img/sc1.png', title: 'मही वसुंधरा', link: 'https://majhivasundhara.in/en' },
+            { src: './Img/sc2.png', title: 'सरकारी निर्णय', link: 'https://maharashtra.gov.in/Site/1603/Government-Decisions' },
+            { src: './Img/sc3.png', title: 'अटल जल योजना', link: 'https://ataljal.mowr.gov.in/' },
+            { src: './Img/sc4.png', title: 'सशक्त पंचायत', link: 'https://logosofindia.blogspot.com/2025/01/sashakt-panchayat-satat-vikas.html' },
+            { src: './Img/sc5.png', title: 'पंचायतराज सेवार्थ', link: 'https://www.panchayatrajsevarth.maharashtra.gov.in/' },
+            { src: './Img/sc6.png', title: 'जलयुक्त शिवार', link: 'http://mrsac.maharashtra.gov.in/jalyukt/' },
+            { src: './Img/sc7.png', title: 'भारत सरकार', link: 'https://www.india.gov.in/' },
+            { src: './Img/sc8.png', title: 'राष्ट्रीय पोर्टल', link: 'https://www.india.gov.in/' },
+            { src: './Img/sc9.png', title: 'डिजिटल इंडिया', link: 'https://www.digitalindia.gov.in/' },
+            { src: './Img/sc10.png', title: 'जी२०', link: 'https://www.g20.in/en/' },
+            { src: './Img/sc11.png', title: 'ग्रामीण विकास', link: 'https://rdd.maharashtra.gov.in/' },
+            { src: './Img/sc12.png', title: 'महापूड', link: 'https://www.mahapwd.com/' }
+        ];
+        
+        // Create icon elements with infinite loop
+        function createIconElements() {
+            // Clear existing content
+            iconTrack.innerHTML = '';
+            
+            // Add multiple copies for seamless infinite scroll
+            for (let i = 0; i < 3; i++) { // Create 3 copies for smooth looping
+                icons.forEach(icon => {
+                    const iconItem = document.createElement('a');
+                    iconItem.href = icon.link;
+                    iconItem.target = '_blank';
+                    iconItem.rel = 'noopener noreferrer';
+                    iconItem.className = 'icon-carousel-item';
+                    
+                    iconItem.innerHTML = `
+                        <img src="${icon.src}" alt="${icon.title}" class="icon-image">
+                        <p class="icon-title">${icon.title}</p>
+                    `;
+                    
+                    iconTrack.appendChild(iconItem);
+                });
+            }
+        }
+        
+        // Initialize carousel with automatic infinite scroll
+        function initializeAutoScroll() {
+            // Add auto-scroll class for CSS animation
+            iconTrack.classList.add('auto-scroll');
+        }
+        
+        // Manual navigation functions
+        function nextSlide() {
+            // For manual navigation, temporarily disable auto-scroll
+            iconTrack.classList.remove('auto-scroll');
+            
+            const itemWidth = 150 + 20; // width + gap
+            const currentTransform = getComputedStyle(iconTrack).transform;
+            const matrix = new DOMMatrix(currentTransform);
+            const currentX = matrix.m41;
+            
+            iconTrack.style.transform = `translateX(${currentX - itemWidth}px)`;
+            
+            // Restart auto-scroll after a delay
+            setTimeout(() => {
+                iconTrack.classList.add('auto-scroll');
+            }, 3000);
+        }
+        
+        function prevSlide() {
+            // For manual navigation, temporarily disable auto-scroll
+            iconTrack.classList.remove('auto-scroll');
+            
+            const itemWidth = 150 + 20; // width + gap
+            const currentTransform = getComputedStyle(iconTrack).transform;
+            const matrix = new DOMMatrix(currentTransform);
+            const currentX = matrix.m41;
+            
+            iconTrack.style.transform = `translateX(${currentX + itemWidth}px)`;
+            
+            // Restart auto-scroll after a delay
+            setTimeout(() => {
+                iconTrack.classList.add('auto-scroll');
+            }, 3000);
+        }
+        
+        // Event listeners for manual controls
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+        
+        // Initialize
+        createIconElements();
+        initializeAutoScroll();
+        
+        // Handle responsive adjustments
+        function handleResize() {
+            // Reinitialize on resize to adjust animation
+            iconTrack.classList.remove('auto-scroll');
+            setTimeout(() => {
+                iconTrack.classList.add('auto-scroll');
+            }, 100);
+        }
+        
+        window.addEventListener('resize', handleResize);
+        
+        // Reset animation on visibility change (when tab becomes active again)
+        document.addEventListener('visibilitychange', function() {
+            if (!document.hidden) {
+                iconTrack.classList.remove('auto-scroll');
+                setTimeout(() => {
+                    iconTrack.classList.add('auto-scroll');
+                }, 100);
+            }
+        });
+    });
+</script>
 
     <!-- Footer -->
     <footer class="footer">
@@ -2417,7 +2819,7 @@ document.addEventListener('DOMContentLoaded', function() {
           keywords: [
             "गाव",
             "तेलवडे",
-            "गोंदिया",
+            "रायगड",
             "ग्रामपंचायत",
             "माहिती",
             "परिचय",
@@ -2693,6 +3095,56 @@ document.addEventListener('DOMContentLoaded', function() {
           updateWeatherUIWithFallback();
         } finally {
           weatherRefreshBtn.querySelector("i").classList.remove("fa-spin");
+        }
+      }
+       // Icon carousel setup
+      const icons = [
+        "sc1.png",
+        "sc2.png",
+        "sc3.png",
+        "sc4.png",
+        "sc5.png",
+        "sc6.png",
+        "sc7.png",
+        "sc8.png",
+        "sc9.png",
+        "sc10.png",
+        "sc11.png",
+        "sc12.png",
+      ];
+
+      const iconLinks = [
+        "https://majhivasundhara.in/en",
+        "https://maharashtra.gov.in/Site/1603/Government-Decisions",
+        "https://ataljal.mowr.gov.in/",
+        "https://logosofindia.blogspot.com/2025/01/sashakt-panchayat-satat-vikas.html",
+        "https://www.panchayatrajsevarth.maharashtra.gov.in/",
+        "http://mrsac.maharashtra.gov.in/jalyukt/",
+        "https://www.india.gov.in/",
+        "https://www.india.gov.in/",
+        "https://www.digitalindia.gov.in/",
+        "https://www.g20.in/en/",
+        "https://rdd.maharashtra.gov.in/",
+        "https://www.mahapwd.com/",
+      ];
+
+      const iconTrack = document.querySelector(".icon-track");
+      if (iconTrack) {
+        for (let i = 0; i < 24; i++) {
+          const iconIndex = i % 12;
+          const iconLink = document.createElement("a");
+          iconLink.href = iconLinks[iconIndex];
+          iconLink.target = "_blank";
+          iconLink.rel = "noopener noreferrer";
+          iconLink.className = "icon-link me-3";
+
+          const iconImg = document.createElement("img");
+          iconImg.src = `./Img/${icons[iconIndex]}`;
+          iconImg.className = "carousel-icon";
+          iconImg.alt = `Icon ${iconIndex + 1}`;
+
+          iconLink.appendChild(iconImg);
+          iconTrack.appendChild(iconLink);
         }
       }
     </script>

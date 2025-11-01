@@ -35,7 +35,7 @@ const homepageContent = [
         category: "माहिती",
         description: "ग्रामपंचायत तेलवडे हे रायगड
 जिल्ह्यातील अर्जुनी/मोरगाव तालुक्यात वसलेले एक शेती प्रधान आणि प्रगतशील गाव",
-        keywords: ["गाव", "तेलवडे", "गोंदिया", "ग्रामपंचायत", "माहिती", "परिचय"],
+        keywords: ["गाव", "तेलवडे", "रायगड", "ग्रामपंचायत", "माहिती", "परिचय"],
         link: "#about-section",
         type: "internal"
     },
@@ -322,7 +322,7 @@ function updateWeatherUI(data) {
 
 function updateWeatherUIWithFallback() {
     // Fallback data in case API fails
-    weatherLocation.textContent = 'तेलवडे, गोंदिया';
+    weatherLocation.textContent = 'तेलवडे, रायगड';
     tempValue.textContent = '28°C';
     tempFeels.textContent = 'जाणवते: 30°C';
     weatherDesc.textContent = 'सौम्य ढगाळ';
