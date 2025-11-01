@@ -1242,9 +1242,11 @@ img {
 
     
 <!-- Navigation Bar -->
+<!-- Fixed Navigation Bar -->
 <nav class="navbar navbar-expand-lg navbar-dark nav-bar">
     <div class="container">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -1271,14 +1273,13 @@ img {
                     </a>
                 </li>
                 
+                <!-- Schemes Dropdown - FIXED -->
                 <li class="nav-item dropdown">
-                    <a
-                class="nav-link text-white fw-semibold hover-link text-white"
-                href="./fifteen.html"
-              >
-                <i class="fa-solid fa-landmark text-white"></i>
-                शासकीय योजना
-              </a>
+                    <a class="nav-link dropdown-toggle" href="#" id="schemesDropdown" 
+                       role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-landmark me-1"></i>
+                        शासकीय योजना
+                    </a>
                     <ul class="dropdown-menu" aria-labelledby="schemesDropdown">
                         <li><a class="dropdown-item" href="./fifteen.html">१५ वित्त आयोग</a></li>
                         <li><a class="dropdown-item" href="./jaljeevan.html">जल जीवन मिशन</a></li>
@@ -1291,14 +1292,13 @@ img {
                     </ul>
                 </li>
                 
+                <!-- Beneficiary Dropdown - FIXED -->
                 <li class="nav-item dropdown">
-        <!--लाभार्थी रजिस्टर-->      <a 
-                class="nav-link text-white fw-semibold text-white px-2 hover-link"
-                href="./pmlabh.html"
-              >
-                <i class="fa-solid fa-users-line text-white"></i>
-                लाभार्थी रजिस्टर
-              </a>
+                    <a class="nav-link dropdown-toggle" href="#" id="beneficiaryDropdown" 
+                       role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-users-line me-1"></i>
+                        लाभार्थी रजिस्टर
+                    </a>
                     <ul class="dropdown-menu" aria-labelledby="beneficiaryDropdown">
                         <li><a class="dropdown-item" href="./pmlabh.html">प्रधानमंत्री आवास योजना</a></li>
                         <li><a class="dropdown-item" href="./shabrilabh.html">शबरी आवास योजना</a></li>
@@ -1327,130 +1327,45 @@ img {
 </nav>
 
 <style>
-/* Navigation Base Styles */
-.nav-bar {
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    padding: 0;
-}
-
-.navbar-nav .nav-link {
-    color: white !important;
-    font-weight: 500;
-    padding: 15px 20px !important;
-    transition: all 0.3s ease;
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.navbar-nav .nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-/* Dropdown Arrow Styles */
-.dropdown-arrow {
-    font-size: 0.8rem;
-    transition: transform 0.3s ease;
-    opacity: 0.8;
-}
-
-.dropdown-toggle.show .dropdown-arrow {
-    transform: rotate(180deg);
-}
-
-/* Desktop Dropdown Styles */
-@media (min-width: 992px) {
-    .dropdown-menu {
-        border: none;
-        border-radius: 12px;
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-        padding: 10px 0;
-    }
-    
-    .dropdown-item {
-        padding: 10px 20px;
-        transition: all 0.3s ease;
-    }
-    
-    .dropdown-item:hover {
-        background-color: #e3f2fd;
-        color: #1a237e;
-    }
-    
-    .dropdown:hover .dropdown-menu {
-       
-        margin-top: 0;
-    }
-    
-    .dropdown:hover .dropdown-arrow {
-        transform: rotate(180deg);
-    }
-}
-
-/* Mobile Dropdown Styles */
+/* Font Awesome Arrow Version - Text Left, Arrow Right */
 @media (max-width: 991.98px) {
-    .navbar-collapse {
-        max-height: 80vh;
-        overflow-y: auto;
+    /* Remove default Bootstrap arrow */
+    .dropdown-toggle::after {
+        display: none !important;
     }
     
+    /* Add Font Awesome arrow */
+    .dropdown-toggle {
+        position: relative;
+        padding-right: 40px !important; /* Space for arrow */
+    }
+    
+    .dropdown-toggle::before {
+        content: "\f078"; /* Font Awesome chevron-down */
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 0.8em;
+        transition: transform 0.3s ease;
+    }
+    
+    /* Rotate arrow when dropdown is open */
+    .dropdown-toggle[aria-expanded="true"]::before {
+        transform: translateY(-50%) rotate(180deg);
+    }
+    
+    /* Ensure text stays on the left */
     .navbar-nav .nav-link {
-        text-align: center;
-        padding: 15px 20px !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        justify-content: center;
+        text-align: left;
+        justify-content: flex-start !important;
     }
     
-    .navbar-nav .nav-link:last-child {
-        border-bottom: none;
+    .nav-link i:first-child {
+        margin-right: 10px;
     }
-    
-    .dropdown-menu {
-        position: static !important;
-        float: none !important;
-        width: 100% !important;
-        margin-top: 0 !important;
-        background-color: rgba(0, 0, 0, 0.3) !important;
-        border: none !important;
-        box-shadow: none !important;
-        border-radius: 0 !important;
-    }
-    
-    .dropdown-item {
-        color: white !important;
-        text-align: center;
-        padding: 12px 20px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .dropdown-item:hover {
-        background-color: rgba(255, 255, 255, 0.1) !important;
-        color: white !important;
-    }
-    
-    .dropdown-item:last-child {
-        border-bottom: none;
-    }
-    
-    /* Ensure dropdowns are visible when toggled */
-    
-    /* Mobile dropdown arrow animation */
-    .dropdown-toggle[aria-expanded="true"] .dropdown-arrow {
-        transform: rotate(180deg);
-    }
-    
-    .dropdown-arrow {
-        margin-left: 8px;
-    }
-}
-
-/* Improve touch targets for mobile */
-.navbar-toggler,
-.nav-link,
-.dropdown-item {
-    min-height: 44px;
-    display: flex;
-    align-items: center;
 }
 </style>
 
