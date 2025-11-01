@@ -29,7 +29,7 @@
 
     
     <style>
-           :root {
+        :root {
             --primary: #1a237e;
             --primary-light: #534bae;
             --primary-dark: #000051;
@@ -285,60 +285,81 @@
             font-weight: 500;
         }
 
-        /* Hero Section */
-        .hero-section {
-            position: relative;
-            height: 85vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./Img/slide1.jpeg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            display: flex;
-            align-items: center;
-            color: var(--white);
-        }
+        /* Updated Hero Section with Blur Effect */
+.hero-section {
+    position: relative;
+    height: 85vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./Img/slide1.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    overflow: hidden;
+}
 
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            padding: 0 20px;
-        }
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    filter: blur(8px);
+    transform: scale(1.1);
+    z-index: 1;
+}
 
-        .hero-badge {
-            display: inline-block;
-            background: rgba(255, 111, 0, 0.9);
-            color: var(--white);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-        }
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+    background: rgba(26, 35, 126, 0.3); /* Semi-transparent overlay */
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
 
-        .hero-title {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-        }
+/* Alternative blur effect - less intense */
+.hero-section.alternative-blur {
+    position: relative;
+    height: 85vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./Img/slide1.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+}
 
-        .hero-subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
+.hero-section.alternative-blur::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    filter: blur(4px);
+    z-index: 1;
+}
 
-        .hero-line {
-            width: 100px;
-            height: 4px;
-            background: var(--secondary);
-            margin: 0 auto 30px;
-            border-radius: 2px;
-        }
-
+.hero-section.alternative-blur .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
         /* About Section */
         .about-section {
             padding: 100px 0;
@@ -567,6 +588,11 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
             height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 180px;
         }
 
         .service-card:hover {
@@ -583,6 +609,7 @@
         .service-title {
             font-weight: 600;
             color: var(--text);
+            text-align: center;
         }
 
         /* Plantation Section */
@@ -1045,6 +1072,7 @@ img {
 .btn {
     font-size: 16px; /* Prevent zoom on iOS */
 }
+
     </style>
 </head>
 <body>
@@ -1224,7 +1252,7 @@ img {
     }
     
     .dropdown:hover .dropdown-menu {
-        display: block;
+       
         margin-top: 0;
     }
     
@@ -1279,9 +1307,6 @@ img {
     }
     
     /* Ensure dropdowns are visible when toggled */
-    .dropdown-menu.show {
-        display: block !important;
-    }
     
     /* Mobile dropdown arrow animation */
     .dropdown-toggle[aria-expanded="true"] .dropdown-arrow {
@@ -1304,73 +1329,81 @@ img {
 </style>
 
 <script>
-// Enhanced dropdown functionality
+// Complete custom dropdown functionality
 document.addEventListener('DOMContentLoaded', function() {
     const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
     
+    // Disable Bootstrap's default behavior
     dropdownToggles.forEach(toggle => {
-        // Handle click on mobile
+        toggle.setAttribute('data-bs-toggle', '');
+    });
+    
+    dropdownToggles.forEach(toggle => {
         toggle.addEventListener('click', function(e) {
-            if (window.innerWidth < 992) {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                const dropdownMenu = this.nextElementSibling;
-                const isOpen = dropdownMenu.classList.contains('show');
-                
-                // Close all other dropdowns
-                document.querySelectorAll('.dropdown-menu').forEach(menu => {
-                    if (menu !== dropdownMenu) {
-                        menu.classList.remove('show');
-                    }
-                });
-                
-                // Toggle current dropdown
-                if (!isOpen) {
-                    dropdownMenu.classList.add('show');
-                    this.setAttribute('aria-expanded', 'true');
-                } else {
-                    dropdownMenu.classList.remove('show');
-                    this.setAttribute('aria-expanded', 'false');
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const dropdownMenu = this.nextElementSibling;
+            const isOpen = dropdownMenu.classList.contains('show');
+            
+            // Close all other dropdowns
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                if (menu !== dropdownMenu) {
+                    menu.classList.remove('show');
                 }
-            }
-        });
-        
-        // Handle hover on desktop
-        toggle.addEventListener('mouseenter', function() {
-            if (window.innerWidth >= 992) {
-                const dropdownMenu = this.nextElementSibling;
+            });
+            
+            document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+                if (toggle !== this) {
+                    toggle.setAttribute('aria-expanded', 'false');
+                    const arrow = toggle.querySelector('.dropdown-arrow');
+                    if (arrow) arrow.style.transform = 'rotate(0deg)';
+                }
+            });
+            
+            // Toggle current dropdown
+            if (!isOpen) {
                 dropdownMenu.classList.add('show');
                 this.setAttribute('aria-expanded', 'true');
+                const arrow = this.querySelector('.dropdown-arrow');
+                if (arrow) arrow.style.transform = 'rotate(180deg)';
+            } else {
+                dropdownMenu.classList.remove('show');
+                this.setAttribute('aria-expanded', 'false');
+                const arrow = this.querySelector('.dropdown-arrow');
+                if (arrow) arrow.style.transform = 'rotate(0deg)';
             }
         });
     });
     
     // Close dropdowns when clicking outside
     document.addEventListener('click', function(e) {
-        if (window.innerWidth < 992) {
-            if (!e.target.closest('.dropdown')) {
-                document.querySelectorAll('.dropdown-menu').forEach(menu => {
-                    menu.classList.remove('show');
-                });
-                document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
-                    toggle.setAttribute('aria-expanded', 'false');
-                });
-            }
-        }
-    });
-    
-    // Handle window resize
-    window.addEventListener('resize', function() {
-        if (window.innerWidth >= 992) {
-            // Reset all dropdowns on desktop
+        if (!e.target.closest('.dropdown')) {
             document.querySelectorAll('.dropdown-menu').forEach(menu => {
                 menu.classList.remove('show');
             });
             document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
                 toggle.setAttribute('aria-expanded', 'false');
+                const arrow = toggle.querySelector('.dropdown-arrow');
+                if (arrow) arrow.style.transform = 'rotate(0deg)';
             });
         }
+    });
+    
+    // Close dropdown when clicking on dropdown items
+    document.querySelectorAll('.dropdown-item').forEach(item => {
+        item.addEventListener('click', function() {
+            const dropdownMenu = this.closest('.dropdown-menu');
+            if (dropdownMenu) {
+                dropdownMenu.classList.remove('show');
+                const toggle = dropdownMenu.previousElementSibling;
+                if (toggle) {
+                    toggle.setAttribute('aria-expanded', 'false');
+                    const arrow = toggle.querySelector('.dropdown-arrow');
+                    if (arrow) arrow.style.transform = 'rotate(0deg)';
+                }
+            }
+        });
     });
 });
 </script>
