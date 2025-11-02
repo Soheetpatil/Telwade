@@ -1504,104 +1504,66 @@ document.addEventListener('DOMContentLoaded', function() {
     </section>
 
 <!-- Search Section -->
-    <div class="container">
-      <!-- Search and Weather Container -->
-      <div class="search-weather-container">
-        <!-- Weather Section - Left Side -->
-        <div class="weather-section mt-5">
-          <div class="weather-data">
-            <div class="weather-header">
-              <i class="fas fa-map-marker-alt"></i>
-              <span class="weather-location">तेलवडे, रायगड</span>
-              <button class="weather-refresh-btn" title="Refresh weather">
-                <i class="fas fa-sync-alt"></i>
-              </button>
-            </div>
-            <div class="weather-main">
-              <div class="weather-icon-temp">
-                <i class="fas fa-cloud-sun"></i>
-                <div class="temperature">
-                  <span class="temp-value">28°C</span>
-                  <span class="temp-feels">जाणवते: 30°C</span>
-                </div>
-              </div>
-              <div class="weather-details">
-                <span class="weather-desc">सौम्य ढगाळ</span>
-                <div class="weather-stats">
-                  <div class="weather-stat">
-                    <i class="fas fa-tint"></i>
-                    <span>65%</span>
-                  </div>
-                  <div class="weather-stat">
-                    <i class="fas fa-wind"></i>
-                    <span>3.5 m/s</span>
-                  </div>
-                  <div class="weather-stat">
-                    <i class="fas fa-gauge-high"></i>
-                    <span>1013 hPa</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="weather-sun-times">
-              <div class="sun-time">
-                <i class="fas fa-sun"></i>
-                <span>सूर्योदय: 06:15</span>
-              </div>
-              <div class="sun-time">
-                <i class="fas fa-moon"></i>
-                <span>सूर्यास्त: 18:45</span>
-              </div>
-            </div>
-            <div class="weather-timestamp">
-              <small>अद्ययावत: 28/12/2023, 10:30 AM</small>
-            </div>
-          </div>
-        </div>
 
-        <!-- Search Section - Right Side -->
-        <div class="search-section">
-          <div class="search-box">
-            <div class="search-input-group">
-              <i class="fas fa-search search-icon"></i>
-              <input
+
+<!-- Search Section - Right Side -->
+<div class="search-section">
+    <div class="search-box">
+        <div class="search-input-group">
+            <i class="fas fa-search search-icon" style="font-size: 1.2rem;"></i>
+            <input
                 type="text"
                 class="search-input"
                 placeholder="इथे शोधा..."
                 value=""
-              />
-              <button
+            />
+            <button
                 type="button"
                 class="clear-search"
                 aria-label="Clear search"
                 style="display: none"
-              >
+            >
                 <i class="fas fa-times"></i>
-              </button>
-            </div>
-          </div>
+            </button>
+        </div>
+    </div>
 
-          <!-- Search Results Dropdown - Positioned below search box -->
-          <div class="search-results-dropdown" style="display: none">
-            <div class="search-results-header">
-              <span>शोध निकाल: ""</span>
-              <button class="close-results" aria-label="Close results">
+    <!-- Search Results Dropdown - Positioned below search box -->
+    <div class="search-results-dropdown" style="display: none">
+        <div class="search-results-header">
+            <span>शोध निकाल: ""</span>
+            <button class="close-results" aria-label="Close results">
                 <i class="fas fa-times"></i>
-              </button>
-            </div>
+            </button>
+        </div>
 
-            <div class="search-results-body">
-              <div class="no-results">
+        <div class="search-results-body">
+            <div class="no-results">
                 <i class="fas fa-search no-results-icon"></i>
                 <p>'' साठी कोणतेही निकाल सापडले नाहीत</p>
                 <small>कृपया वेगळे कीवर्ड वापरून पहा</small>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
+</div>
 
+<style>
+.search-icon {
+    font-size: 1.2rem !important;
+    color: #666;
+    min-width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.search-input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+}
+</style>
     <!-- About Section -->
     <section id="about" class="about-section">
         <div class="container">
