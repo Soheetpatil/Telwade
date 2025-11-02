@@ -10,9 +10,9 @@
     <link rel="icon" type="image/x-icon" href="./Img/main_logo.jpeg">
     
     <!-- Your existing CSS files and libraries -->
+    
     <link rel="stylesheet" href="./styles/Navbar.css" />
-    <link rel="stylesheet" href="./styles/Navbar.css" />
-    <link rel="stylesheet" href="./styles/weather.css" />
+    <link rel="stylesheet" href="./styles/weather.cs" />
     <link rel="stylesheet" href="./styles/facilities.css" />
     <link rel="stylesheet" href="./styles/videosection.css" />
     <link rel="stylesheet" href="./styles/govtsec.css" />
@@ -1509,105 +1509,490 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     </section>
 
-<!-- Search Section -->
-    <div class="container">
-      <!-- Search and Weather Container -->
-      <div class="search-weather-container">
-        <!-- Weather Section - Left Side -->
-        <div class="weather-section mt-5">
-          <div class="weather-data">
-            <div class="weather-header">
-              <i class="fas fa-map-marker-alt"></i>
-              <span class="weather-location">तेलवडे, रायगड</span>
-              <button class="weather-refresh-btn" title="Refresh weather">
-                <i class="fas fa-sync-alt"></i>
-              </button>
+
+<!-- Search Section - Centered with Blue Background -->
+<div class="search-section-container">
+    <div class="search-section">
+        <div class="search-box">
+            <div class="search-input-group">
+                <i class="fas fa-search search-icon"></i>
+                <input
+                    type="text"
+                    class="search-input"
+                    placeholder="इथे शोधा..."
+                    value=""
+                />
+                <button
+                    type="button"
+                    class="clear-search"
+                    aria-label="Clear search"
+                    style="display: none"
+                >
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
-            <div class="weather-main">
-              <div class="weather-icon-temp">
-                <i class="fas fa-cloud-sun"></i>
-                <div class="temperature">
-                  <span class="temp-value">28°C</span>
-                  <span class="temp-feels">जाणवते: 30°C</span>
-                </div>
-              </div>
-              <div class="weather-details">
-                <span class="weather-desc">सौम्य ढगाळ</span>
-                <div class="weather-stats">
-                  <div class="weather-stat">
-                    <i class="fas fa-tint"></i>
-                    <span>65%</span>
-                  </div>
-                  <div class="weather-stat">
-                    <i class="fas fa-wind"></i>
-                    <span>3.5 m/s</span>
-                  </div>
-                  <div class="weather-stat">
-                    <i class="fas fa-gauge-high"></i>
-                    <span>1013 hPa</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="weather-sun-times">
-              <div class="sun-time">
-                <i class="fas fa-sun"></i>
-                <span>सूर्योदय: 06:15</span>
-              </div>
-              <div class="sun-time">
-                <i class="fas fa-moon"></i>
-                <span>सूर्यास्त: 18:45</span>
-              </div>
-            </div>
-            <div class="weather-timestamp">
-              <small>अद्ययावत: 28/12/2023, 10:30 AM</small>
-            </div>
-          </div>
         </div>
 
-        <!-- Search Section - Right Side -->
-        <div class="search-section">
-          <div class="search-box">
-            <div class="search-input-group">
-              <i class="fas fa-search search-icon"></i>
-              <input
-                type="text"
-                class="search-input"
-                placeholder="इथे शोधा..."
-                value=""
-              />
-              <button
-                type="button"
-                class="clear-search"
-                aria-label="Clear search"
-                style="display: none"
-              >
-                <i class="fas fa-times"></i>
-              </button>
-            </div>
-          </div>
-
-          <!-- Search Results Dropdown - Positioned below search box -->
-          <div class="search-results-dropdown" style="display: none">
+        <!-- Search Results Dropdown - Positioned below search box -->
+        <div class="search-results-dropdown" style="display: none">
             <div class="search-results-header">
-              <span>शोध निकाल: ""</span>
-              <button class="close-results" aria-label="Close results">
-                <i class="fas fa-times"></i>
-              </button>
+                <span>शोध निकाल: ""</span>
+                <button class="close-results" aria-label="Close results">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
 
             <div class="search-results-body">
-              <div class="no-results">
-                <i class="fas fa-search no-results-icon"></i>
-                <p>'' साठी कोणतेही निकाल सापडले नाहीत</p>
-                <small>कृपया वेगळे कीवर्ड वापरून पहा</small>
-              </div>
+                <div class="no-results">
+                    <i class="fas fa-search no-results-icon"></i>
+                    <p>'' साठी कोणतेही निकाल सापडले नाहीत</p>
+                    <small>कृपया वेगळे कीवर्ड वापरून पहा</small>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
+</div>
 
+<style>
+/* Search Section Container */
+.search-section-container {
+    position: relative;
+    width: 100%;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.search-section {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.search-box {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(30, 136, 229, 0.3);
+    overflow: hidden;
+    border: 2px solid #1a237e;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.search-box:focus-within {
+    box-shadow: 0 15px 40px rgba(30, 136, 229, 0.5);
+    transform: translateY(-5px);
+}
+
+.search-input-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 20px;
+    position: relative;
+}
+
+.search-icon {
+    font-size: 1.1rem;
+    color: #1a237e;
+    min-width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    color: #333;
+    background: transparent;
+    padding: 0;
+}
+
+.search-input::placeholder {
+    color: #757575;
+}
+
+.clear-search {
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    width: 28px;
+    height: 28px;
+}
+
+.clear-search:hover {
+    background: #f0f0f0;
+    color: #666;
+}
+
+.search-results-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    margin-top: 10px;
+    overflow: hidden;
+    z-index: 1000;
+    border: 1px solid #e0e0e0;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.search-results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    background: #f9f9f9;
+}
+
+.search-results-header span {
+    font-size: 1rem;
+    color: #666;
+    font-weight: 500;
+}
+
+.close-results {
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.close-results:hover {
+    background: #f0f0f0;
+    color: #666;
+}
+
+.search-results-body {
+    padding: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.no-results {
+    text-align: center;
+    color: #666;
+    padding: 30px 0;
+}
+
+.no-results-icon {
+    font-size: 3rem;
+    color: #ccc;
+    margin-bottom: 15px;
+}
+
+.no-results p {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.no-results small {
+    font-size: 0.9rem;
+    color: #999;
+}
+
+.search-results-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.search-result-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #f0f0f0;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+}
+
+.search-result-item:hover {
+    background: #f8f9fa;
+    border-color: #4a90e2;
+    transform: translateX(5px);
+}
+
+.result-content {
+    flex: 1;
+}
+
+.result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.result-title {
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+.result-category {
+    font-size: 0.8rem;
+    background: #e3f2fd;
+    color: #1976d2;
+    padding: 3px 10px;
+    border-radius: 12px;
+}
+
+.result-description {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0 0 10px 0;
+    line-height: 1.5;
+}
+
+.result-keywords {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.keyword-tag {
+    font-size: 0.75rem;
+    background: #f5f5f5;
+    color: #666;
+    padding: 3px 8px;
+    border-radius: 10px;
+}
+
+.result-arrow {
+    color: #999;
+    font-size: 0.9rem;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Blue light effect */
+.blue-light-effect {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(33, 150, 243, 0.1) 0%, rgba(33, 150, 243, 0) 70%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .search-section-container {
+        padding: 30px 15px;
+    }
+    
+    .search-section {
+        max-width: 100%;
+    }
+    
+    .search-input-group {
+        padding: 15px;
+    }
+    
+    .search-results-dropdown {
+        position: fixed;
+        top: auto;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        margin-top: 0;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.querySelector('.search-input');
+    const clearSearchBtn = document.querySelector('.clear-search');
+    const searchResults = document.querySelector('.search-results-dropdown');
+    const closeResultsBtn = document.querySelector('.close-results');
+    const resultsHeader = document.querySelector('.search-results-header span');
+    
+    // Sample search data
+    const searchData = [
+        {
+            title: "गावा विषयी",
+            category: "माहिती",
+            description: "तेलवडे ग्रामपंचायत ही अलिबाग जिल्हा परिषद, मुरुड पंचायत समिती अंतर्गत येणारी ग्रामिण स्वराज्य संस्था आहे.",
+            keywords: ["गाव", "तेलवडे", "ग्रामपंचायत", "माहिती", "परिचय"]
+        },
+        {
+            title: "ग्रामपंचायत अधिकारी",
+            category: "अधिकारी",
+            description: "सरपंच, उपसरपंच आणि ग्रामपंचायत अधिकारी यांची संपूर्ण माहिती आणि संपर्क तपशील.",
+            keywords: ["सरपंच", "उपसरपंच", "अधिकारी", "संपर्क"]
+        },
+        {
+            title: "सुविधा आणि सेवा",
+            category: "सुविधा",
+            description: "पाणी, वीज, रस्ते, आरोग्य केंद्र, शाळा, अंगणवाडी इत्यादी सुविधांची माहिती.",
+            keywords: ["पाणी", "वीज", "रस्ते", "आरोग्य", "शाळा", "अंगणवाडी"]
+        },
+        {
+            title: "शासकीय योजना",
+            category: "योजना",
+            description: "१५ वित्त आयोग, जल जीवन मिशन, प्रधान मंत्री आवास योजना, महात्मा गांधी रोजगार हमी योजना.",
+            keywords: ["योजना", "जल जीवन", "आवास", "रोजगार", "तांडा", "वस्ती"]
+        },
+        {
+            title: "लोकसंख्या",
+            category: "माहिती",
+            description: "गावातील लोकसंख्या, कुटुंबांची संख्या, पुरुष-महिला गणना आणि इतर आकडेवारी.",
+            keywords: ["लोकसंख्या", "कुटुंब", "पुरुष", "महिला", "गणना"]
+        },
+        {
+            title: "स्वच्छता अभियान",
+            category: "कार्यक्रम",
+            description: "ग्रामपंचायत मध्ये चालू असलेले स्वच्छता अभियान आणि त्यातील सहभाग.",
+            keywords: ["स्वच्छता", "अभियान", "सफाई", "कचरा", "व्यवस्थापन"]
+        }
+    ];
+    
+    // Show/hide clear button based on input
+    searchInput.addEventListener('input', function() {
+        if (this.value.trim() !== '') {
+            clearSearchBtn.style.display = 'flex';
+            performSearch(this.value);
+        } else {
+            clearSearchBtn.style.display = 'none';
+            searchResults.style.display = 'none';
+        }
+    });
+    
+    // Clear search input
+    clearSearchBtn.addEventListener('click', function() {
+        searchInput.value = '';
+        searchInput.focus();
+        clearSearchBtn.style.display = 'none';
+        searchResults.style.display = 'none';
+    });
+    
+    // Show search results on focus
+    searchInput.addEventListener('focus', function() {
+        if (this.value.trim() !== '') {
+            performSearch(this.value);
+        }
+    });
+    
+    // Close search results
+    closeResultsBtn.addEventListener('click', function() {
+        searchResults.style.display = 'none';
+    });
+    
+    // Close search results when clicking outside
+    document.addEventListener('click', function(event) {
+        if (!event.target.closest('.search-section')) {
+            searchResults.style.display = 'none';
+        }
+    });
+    
+    // Perform search function
+    function performSearch(searchTerm) {
+        const lowerSearchTerm = searchTerm.toLowerCase();
+        const results = searchData.filter(item => {
+            return (
+                item.title.toLowerCase().includes(lowerSearchTerm) ||
+                item.description.toLowerCase().includes(lowerSearchTerm) ||
+                item.keywords.some(keyword => 
+                    keyword.toLowerCase().includes(lowerSearchTerm)
+                ) ||
+                item.category.toLowerCase().includes(lowerSearchTerm)
+            );
+        });
+        
+        updateSearchResults(searchTerm, results);
+    }
+    
+    // Update search results UI
+    function updateSearchResults(searchTerm, results) {
+        resultsHeader.textContent = `शोध निकाल: "${searchTerm}"`;
+        
+        if (results.length > 0) {
+            const resultsBody = document.querySelector('.search-results-body');
+            resultsBody.innerHTML = '';
+            
+            const resultsList = document.createElement('div');
+            resultsList.className = 'search-results-list';
+            
+            results.forEach(result => {
+                const resultItem = document.createElement('div');
+                resultItem.className = 'search-result-item';
+                resultItem.setAttribute('role', 'button');
+                resultItem.setAttribute('tabindex', '0');
+                
+                resultItem.innerHTML = `
+                    <div class="result-content">
+                        <div class="result-header">
+                            <h6 class="result-title">${result.title}</h6>
+                            <span class="result-category">${result.category}</span>
+                        </div>
+                        <p class="result-description">${result.description}</p>
+                        <div class="result-keywords">
+                            ${result.keywords.slice(0, 3).map(keyword => 
+                                `<span class="keyword-tag">${keyword}</span>`
+                            ).join('')}
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right result-arrow"></i>
+                `;
+                
+                resultItem.addEventListener('click', () => {
+                    alert(`निवडले: ${result.title}`);
+                    searchResults.style.display = 'none';
+                });
+                
+                resultsList.appendChild(resultItem);
+            });
+            
+            resultsBody.appendChild(resultsList);
+        } else {
+            document.querySelector('.search-results-body').innerHTML = `
+                <div class="no-results">
+                    <i class="fas fa-search no-results-icon"></i>
+                    <p>'${searchTerm}' साठी कोणतेही निकाल सापडले नाहीत</p>
+                    <small>कृपया वेगळे कीवर्ड वापरून पहा</small>
+                </div>
+            `;
+        }
+        
+        searchResults.style.display = 'block';
+    }
+});
+</script>
     <!-- About Section -->
     <section id="about" class="about-section">
         <div class="container">
