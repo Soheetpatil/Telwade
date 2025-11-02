@@ -56,6 +56,16 @@
             --transition: all 0.3s ease;
         }
 
+        #google_translate_element select {
+  background-color: #f8f9fa;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 5px 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
         /* Base Styles */
         * {
             margin: 0;
@@ -1193,8 +1203,21 @@ img {
 }
 
     </style>
+    <!-- 🌐 Google Translate Initialization -->
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'mr', 
+        includedLanguages: 'mr,en,hi',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  
 </head>
 <body>
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Your existing HTML content -->
     <!-- Top Bar -->
@@ -1244,6 +1267,9 @@ img {
 <!-- Navigation Bar -->
 <!-- Fixed Navigation Bar -->
 <nav class="navbar navbar-expand-lg navbar-dark nav-bar">
+    <!-- 🌍 Google Translate Dropdown (Top Header) -->
+<div id="google_translate_element" style="float: right; margin: 10px;"></div>
+
     <div class="container">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
