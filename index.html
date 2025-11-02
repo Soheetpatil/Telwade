@@ -38,7 +38,6 @@
   rel="stylesheet"
 />
 
-    
     <style>
         :root {
             --primary: #1a237e;
@@ -639,41 +638,7 @@
             background-color: var(--white);
         }
 
-        /* Helpline Section */
-        .helpline-section {
-            padding: 80px 0;
-            background-color: var(--light);
-        }
-
-        .helpline-card, .forms-card {
-            height: 100%;
-        }
-
-        .helpline-item, .form-item {
-            padding: 15px;
-            border-radius: var(--border-radius);
-            background: var(--white);
-            margin-bottom: 15px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .helpline-item:hover, .form-item:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .helpline-icon, .file-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            color: var(--white);
-        }
-
+      
         /* Footer */
         .footer {
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
@@ -1168,6 +1133,32 @@
         }
       }
 
+
+.btn-outline-danger {
+    border-color: #dc3545;
+    color: #dc3545;
+}
+
+.btn-outline-danger:hover {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-outline-success {
+    border-color: #28a745;
+    color: #28a745;
+}
+
+.btn-outline-success:hover {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Hover effects */
 /* Additional Mobile Optimizations */
 /* Improve touch targets */
 .navbar-toggler,
@@ -1176,7 +1167,6 @@
 .dropdown-item,
 .gallery-item,
 .service-card,
-.helpline-item,
 .form-item {
     min-height: 44px; /* Minimum touch target size */
     display: flex;
@@ -2309,126 +2299,229 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     </section>
 
-    <!-- Helpline Section -->
-    <section id="helpline" class="helpline-section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">हेल्पलाइन क्रमांक</h2>
-            <div class="row">
-                <div class="col-md-6 mb-4" data-aos="fade-right">
-                    <div class="card helpline-card">
-                        <div class="card-header bg-danger text-white">
-                            <h4 class="mb-0"><i class="fas fa-phone-alt me-2"></i>हेल्पलाइन क्रमांक</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="helpline-item">
-                                <div class="d-flex align-items-center">
-                                    <div class="helpline-icon bg-primary me-3">
-                                        <i class="fas fa-phone"></i>
-                                    </div>
-                                    <div>
-                                        <h5 class="mb-1">मुख्य हेल्पलाइन</h5>
-                                        <h4 class="mb-0 text-primary">022-69718528</h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="helpline-item">
-                                <div class="d-flex align-items-center">
-                                    <div class="helpline-icon bg-success me-3">
-                                        <i class="fas fa-shield-alt"></i>
-                                    </div>
-                                    <div>
-                                        <h5 class="mb-1">पोलीस</h5>
-                                        <h4 class="mb-0 text-success">100</h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="helpline-item">
-                                <div class="d-flex align-items-center">
-                                    <div class="helpline-icon bg-warning me-3">
-                                        <i class="fas fa-female"></i>
-                                    </div>
-                                    <div>
-                                        <h5 class="mb-1">महिला संरक्षण</h5>
-                                        <h4 class="mb-0 text-warning">1091</h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="helpline-item">
-                                <div class="d-flex align-items-center">
-                                    <div class="helpline-icon bg-info me-3">
-                                        <i class="fas fa-ambulance"></i>
-                                    </div>
-                                    <div>
-                                        <h5 class="mb-1">आपत्कालीन वैद्यकीय</h5>
-                                        <h4 class="mb-0 text-info">108</h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="text-center mt-3">
-                                <a href="./impnumbers.html" class="btn btn-outline-danger">अधिक हेल्पलाइन क्रमांक</a>
-                            </div>
-                        </div>
-                    </div>
+            <!-- Helpline Section -->
+        <div class="container-fluid my-5" id="helpline">
+          <div class="row g-4">
+            <!-- Helpline Numbers Card -->
+            <div class="col-md-6" data-aos="fade-right">
+              <div class="card shadow-lg border-0 h-100">
+                <div class="card-header bg-danger text-white">
+                  <h4 class="mb-0">
+                    <i class="fas fa-phone-alt me-2"></i>
+                    हेल्पलाइन क्रमांक
+                  </h4>
+                  <small class="opacity-75">टोल फ्री क्रमांक</small>
                 </div>
-                <div class="col-md-6 mb-4" data-aos="fade-left">
-                    <div class="card forms-card">
-                        <div class="card-header bg-success text-white">
-                            <h4 class="mb-0"><i class="fas fa-file-alt me-2"></i>महत्वाचे फॉर्म</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="form-item">
-                                <div class="d-flex align-items-center">
-                                    <div class="file-icon bg-dark me-3">
-                                        <i class="fas fa-file-pdf"></i>
-                                    </div>
-                                    <div>
-                                        <h5 class="mb-1">रमाई आवास योजना अर्ज फॉर्म</h5>
-                                        <p class="mb-0 text-muted">PDF - 245 KB</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-item">
-                                <div class="d-flex align-items-center">
-                                    <div class="file-icon bg-success me-3">
-                                        <i class="fas fa-file-word"></i>
-                                    </div>
-                                    <div>
-                                        <h5 class="mb-1">वारसान स्वघोषणा पत्र फॉर्म</h5>
-                                        <p class="mb-0 text-muted">DOC - 180 KB</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-item">
-                                <div class="d-flex align-items-center">
-                                    <div class="file-icon bg-warning me-3">
-                                        <i class="fas fa-file-contract"></i>
-                                    </div>
-                                    <div>
-                                        <h5 class="mb-1">वि वि घोषणा पत्र फॉर्म</h5>
-                                        <p class="mb-0 text-muted">PDF - 320 KB</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-item">
-                                <div class="d-flex align-items-center">
-                                    <div class="file-icon bg-info me-3">
-                                        <i class="fas fa-file-signature"></i>
-                                    </div>
-                                    <div>
-                                        <h5 class="mb-1">शबरी घरकुल फॉर्म</h5>
-                                        <p class="mb-0 text-muted">PDF - 275 KB</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="text-center mt-3">
-                                <a href="#" class="btn btn-outline-success">सर्व फॉर्म पहा</a>
-                            </div>
-                        </div>
+                <div class="card-body">
+                  <div class="helpline-list">
+                    <!-- Helpline Item 1 -->
+                    <div
+                      class="helpline-item d-flex align-items-center p-3 border-bottom"
+                    >
+                      <div
+                        class="helpline-icon bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3"
+                        style="width: 50px; height: 50px"
+                      >
+                        <i class="fas fa-phone"></i>
+                      </div>
+                      <div class="flex-grow-1">
+                        <h6 class="mb-1 text-dark">मुख्य हेल्पलाइन</h6>
+                        <h5 class="mb-0 fw-bold">022-69718528</h5>
+                      </div>
                     </div>
+
+                    <!-- Helpline Item 2 -->
+                    <div
+                      class="helpline-item d-flex align-items-center p-3 border-bottom"
+                    >
+                      <div
+                        class="helpline-icon bg-success text-white rounded-circle d-flex align-items-center justify-content-center me-3"
+                        style="width: 50px; height: 50px"
+                      >
+                        <i class="fas fa-shield-alt"></i>
+                      </div>
+                      <div class="flex-grow-1">
+                        <h6 class="mb-1 text-success">पोलीस</h6>
+                        <h5 class="mb-0 fw-bold">100</h5>
+                      </div>
+                    </div>
+
+                    <!-- Helpline Item 3 -->
+                    <div
+                      class="helpline-item d-flex align-items-center p-3 border-bottom"
+                    >
+                      <div
+                        class="helpline-icon bg-warning text-white rounded-circle d-flex align-items-center justify-content-center me-3"
+                        style="width: 50px; height: 50px"
+                      >
+                        <i class="fas fa-female"></i>
+                      </div>
+                      <div class="flex-grow-1">
+                        <h6 class="mb-1 text-warning">महिला संरक्षण</h6>
+                        <h5 class="mb-0 fw-bold">1091</h5>
+                      </div>
+                    </div>
+
+                    <!-- Helpline Item 4 -->
+                    <div
+                      class="helpline-item d-flex align-items-center p-3 border-bottom"
+                    >
+                      <div
+                        class="helpline-icon bg-info text-white rounded-circle d-flex align-items-center justify-content-center me-3"
+                        style="width: 50px; height: 50px"
+                      >
+                        <i class="fas fa-ambulance"></i>
+                      </div>
+                      <div class="flex-grow-1">
+                        <h6 class="mb-1 text-info">आपत्कालीन वैद्यकीय</h6>
+                        <h5 class="mb-0 fw-bold">108</h5>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text-center mt-4">
+                    <a
+                      href="./impnumbers.html"
+                      class="btn btn-outline-danger text-decoration-none"
+                    >
+                      अधिक हेल्पलाइन क्रमांक
+                      <i class="fas fa-chevron-right ms-1"></i>
+                    </a>
+                  </div>
                 </div>
+              </div>
             </div>
+
+</section>
+            <!-- Important Forms Card -->
+            <div class="col-md-6" data-aos="fade-left">
+              <div class="card shadow-lg border-0 h-100">
+                <div class="card-header bg-success text-white">
+                  <h4 class="mb-0">
+                    <i class="fas fa-file-alt me-2"></i>
+                    महत्वाचे फॉर्म
+                  </h4>
+                </div>
+                <div class="card-body">
+                  <div class="forms-list">
+                    <!-- Form Item 1 -->
+                    <div
+                      class="form-item d-flex align-items-center justify-content-between p-3 border-bottom"
+                    >
+                      <div class="d-flex align-items-center">
+                        <div
+                          class="file-icon bg-dark text-white rounded d-flex align-items-center justify-content-center me-3"
+                          style="width: 45px; height: 45px"
+                        >
+                          <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div>
+                          <a
+                            href="#"
+                            class="text-decoration-none"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <h6 class="mb-1 text-dark">
+                              रमाई आवास योजना अर्ज फॉर्म
+                            </h6>
+                          </a>
+                          <small class="text-muted">PDF - 245 KB</small>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Form Item 2 -->
+                    <div
+                      class="form-item d-flex align-items-center justify-content-between p-3 border-bottom"
+                    >
+                      <div class="d-flex align-items-center">
+                        <div
+                          class="file-icon bg-success text-white rounded d-flex align-items-center justify-content-center me-3"
+                          style="width: 45px; height: 45px"
+                        >
+                          <i class="fas fa-file-word"></i>
+                        </div>
+                        <div>
+                          <a
+                            href="#"
+                            class="text-decoration-none"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <h6 class="mb-1 text-success">
+                              वारसान स्वघोषणा पत्र फॉर्म
+                            </h6>
+                          </a>
+                          <small class="text-muted">DOC - 180 KB</small>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Form Item 3 -->
+                    <div
+                      class="form-item d-flex align-items-center justify-content-between p-3 border-bottom"
+                    >
+                      <div class="d-flex align-items-center">
+                        <div
+                          class="file-icon bg-warning text-white rounded d-flex align-items-center justify-content-center me-3"
+                          style="width: 45px; height: 45px"
+                        >
+                          <i class="fas fa-file-contract"></i>
+                        </div>
+                        <div>
+                          <a
+                            href="#"
+                            class="text-decoration-none"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <h6 class="mb-1 text-warning">
+                              वि वि घोषणा पत्र फॉर्म
+                            </h6>
+                          </a>
+                          <small class="text-muted">PDF - 320 KB</small>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Form Item 4 -->
+                    <div
+                      class="form-item d-flex align-items-center justify-content-between p-3 border-bottom"
+                    >
+                      <div class="d-flex align-items-center">
+                        <div
+                          class="file-icon bg-info text-white rounded d-flex align-items-center justify-content-center me-3"
+                          style="width: 45px; height: 45px"
+                        >
+                          <i class="fas fa-file-signature"></i>
+                        </div>
+                        <div>
+                          <a
+                            href="#"
+                            class="text-decoration-none"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <h6 class="mb-1 text-info">शबरी घरकुल फॉर्म</h6>
+                          </a>
+                          <small class="text-muted">PDF - 275 KB</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text-center mt-4">
+                    <a href="#" target="_blank" rel="noopener noreferrer">
+                      <button class="btn btn-outline-success">
+                        सर्व फॉर्म पहा
+                        <i class="fas fa-external-link-alt ms-1"></i>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    </section>
 
  <!--Govt Section-->
         <div class="government-officials-container">
