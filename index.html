@@ -2204,51 +2204,84 @@ document.addEventListener('DOMContentLoaded', function() {
     </section>
 
     <!-- E-Alert Section -->
-    <section class="ealert-section">
-        <div class="container">
-            <h2 class="section-title text-white" data-aos="fade-up">ई-सेवा</h2>
-            <div class="row">
-                <div class="col-md-2 col-sm-4 col-6 mb-4" data-aos="zoom-in" data-aos-delay="0">
-                    <div class="service-card">
-                        <i class="fas fa-bullhorn service-icon"></i>
-                        <h5 class="service-title">ई - दवंडी</h5>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-4 col-6 mb-4" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="service-card">
-                        <i class="fas fa-certificate service-icon"></i>
-                        <h5 class="service-title">ई - प्रमाणपत्र</h5>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-4 col-6 mb-4" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="service-card">
-                        <i class="fas fa-receipt service-icon"></i>
-                        <h5 class="service-title">ग्रामपंचायत कर</h5>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-4 col-6 mb-4" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="service-card">
-                        <i class="fas fa-chart-bar service-icon"></i>
-                        <h5 class="service-title">ग्रामपंचायत अहवाल</h5>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-4 col-6 mb-4" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="service-card">
-                        <i class="fas fa-shield-alt service-icon"></i>
-                        <h5 class="service-title">महाराष्ट्र पोलीस</h5>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-4 col-6 mb-4" data-aos="zoom-in" data-aos-delay="500">
-                    <div class="service-card">
-                        <i class="fas fa-file-alt service-icon"></i>
-                        <h5 class="service-title">अधिक सेवा</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div
+  id="ealert"
+  class="container-fluid d-flex align-items-center justify-content-center py-4"
+  style="background-color: #ade8f4ff"
+>
+  <div class="row w-100 justify-content-center align-items-center">
+    <!-- E-Davandi -->
+    <div class="col-auto text-center mb-3" style="min-width: 180px; max-width: 180px; height: 140px; display: flex; align-items: center; justify-content: center;">
+      <div class="service-card p-4" style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <i class="fas fa-bullhorn fa-2x text-dark mb-2"></i>
+        <a
+          href="./gralert.html"
+          class="text-decoration-none"
+          target="_self"
+        >
+          <div class="fw-bold text-dark" style="word-wrap: break-word; text-align: center; line-height: 1.2;">ई - दवंडी</div>
+        </a>
+      </div>
+    </div>
 
-    <!-- Plantation Section -->
+    <!-- E-Pramanpatra -->
+    <div class="col-auto text-center mb-3" style="min-width: 180px; max-width: 180px; height: 140px; display: flex; align-items: center; justify-content: center;">
+      <div class="service-card p-4" style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <i class="fas fa-certificate fa-2x text-success mb-2"></i>
+        <a href="#" class="text-decoration-none" target="_self">
+          <div class="fw-bold text-dark" style="word-wrap: break-word; text-align: center; line-height: 1.2;">ई - प्रमाणपत्र</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Grampanchayat Kar -->
+    <div class="col-auto text-center mb-3" style="min-width: 180px; max-width: 180px; height: 140px; display: flex; align-items: center; justify-content: center;">
+      <div class="service-card p-4" style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <i class="fas fa-receipt fa-2x text-warning mb-2"></i>
+        <a
+          href="./taxcollect.html"
+          class="text-decoration-none"
+          target="_self"
+        >
+          <div class="fw-bold text-dark" style="word-wrap: break-word; text-align: center; line-height: 1.2;">ग्रामपंचायत कर</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Grampanchayat Ahaval -->
+    <div class="col-auto text-center mb-3" style="min-width: 180px; max-width: 180px; height: 140px; display: flex; align-items: center; justify-content: center;">
+      <div class="service-card p-4" style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <i class="fas fa-chart-bar fa-2x text-info mb-2"></i>
+        <a
+          href="./services.html"
+          class="text-decoration-none"
+          target="_self"
+        >
+          <div class="fw-bold text-dark" style="word-wrap: break-word; text-align: center; line-height: 1.2;">ग्रामपंचायत अहवाल</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Maharashtra Police -->
+    <div class="col-auto text-center mb-3" style="min-width: 180px; max-width: 180px; height: 140px; display: flex; align-items: center; justify-content: center;">
+      <div class="service-card p-4" style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <img
+          src="./Img/Logo_mp.png"
+          alt="Maharashtra Police"
+          class="service-icon mb-2"
+          style="height: 32px; width: auto;"
+        />
+        <a
+          href="https://citizen.mahapolice.gov.in/citizen/mh/index.aspx"
+          class="text-decoration-none"
+          target="_blank"
+        >
+          <div class="fw-bold text-dark" style="word-wrap: break-word; text-align: center; line-height: 1.2;">महाराष्ट्र पोलीस</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>    <!-- Plantation Section -->
     <section class="plantation-section">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">वृक्षारोपण चित्रदालन</h2>
